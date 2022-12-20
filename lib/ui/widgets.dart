@@ -3,9 +3,13 @@ import 'package:wordle_app/logic/functions.dart';
 import 'package:wordle_app/ui/elements.dart';
 
 class WordBox extends StatelessWidget {
-  WordBox({Key? key, required this.word, required this.boxIndex})
-      : super(key: key);
+  WordBox({
+    Key? key,
+    required this.word,
+    required this.boxIndex,
+  }) : super(key: key);
   String word;
+
   int boxIndex;
   @override
   Widget build(BuildContext context) {
@@ -14,7 +18,7 @@ class WordBox extends StatelessWidget {
         width: 60,
         decoration: MyDecorations.textFieldDecoration,
         child: Center(
-            child: Text(word.length >= boxIndex + 1 ? word[boxIndex] : "",
+            child: Text((word.length >= boxIndex + 1) ? word[boxIndex] : "",
                 style: MyTextStyle.letterTextStyle)));
   }
 }
