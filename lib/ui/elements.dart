@@ -4,6 +4,8 @@ class MyColors {
   static Color appBarColor = Colors.transparent;
   static Color backgroundColor = const Color.fromARGB(255, 31, 31, 31);
   static Color firstNeutralColor = const Color.fromARGB(255, 91, 91, 91);
+  static Color lastResultSemiTrueColor = Colors.yellow;
+  static Color lastResultTrueColor = Colors.green;
   static Color fullTrueColor = const Color.fromARGB(255, 72, 163, 75);
   static Color halfTrueColor = const Color.fromARGB(255, 208, 195, 76);
   static Color fullFalseColor = const Color.fromARGB(255, 63, 63, 63);
@@ -21,10 +23,6 @@ class MyTextStyle {
 }
 
 class MyDecorations {
-  static BoxDecoration textFieldDecoration = BoxDecoration(
-      shape: BoxShape.rectangle,
-      borderRadius: const BorderRadius.all(Radius.circular(3)),
-      color: MyColors.firstNeutralColor);
   static Decoration keyBoardDecoration = const BoxDecoration(
       shape: BoxShape.rectangle, color: Color.fromARGB(0, 54, 54, 54));
 }

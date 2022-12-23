@@ -26,11 +26,31 @@ class _WordleHomePageState extends GameLogic {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: gameIndex >= 0
                   ? [
-                      WordBox(word: wordsEntered[0], boxIndex: 0),
-                      WordBox(word: wordsEntered[0], boxIndex: 1),
-                      WordBox(word: wordsEntered[0], boxIndex: 2),
-                      WordBox(word: wordsEntered[0], boxIndex: 3),
-                      WordBox(word: wordsEntered[0], boxIndex: 4)
+                      WordBox(
+                          word: wordsEntered[0],
+                          boxIndex: 0,
+                          indicator: backgrounds,
+                          gameIndex: 0),
+                      WordBox(
+                          word: wordsEntered[0],
+                          boxIndex: 1,
+                          indicator: backgrounds,
+                          gameIndex: 0),
+                      WordBox(
+                          word: wordsEntered[0],
+                          boxIndex: 2,
+                          indicator: backgrounds,
+                          gameIndex: 0),
+                      WordBox(
+                          word: wordsEntered[0],
+                          boxIndex: 3,
+                          indicator: backgrounds,
+                          gameIndex: 0),
+                      WordBox(
+                          word: wordsEntered[0],
+                          boxIndex: 4,
+                          indicator: backgrounds,
+                          gameIndex: 0)
                     ]
                   : [],
             ),
@@ -38,11 +58,31 @@ class _WordleHomePageState extends GameLogic {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: gameIndex >= 1
                   ? [
-                      WordBox(word: wordsEntered[1], boxIndex: 0),
-                      WordBox(word: wordsEntered[1], boxIndex: 1),
-                      WordBox(word: wordsEntered[1], boxIndex: 2),
-                      WordBox(word: wordsEntered[1], boxIndex: 3),
-                      WordBox(word: wordsEntered[1], boxIndex: 4)
+                      WordBox(
+                          word: wordsEntered[1],
+                          boxIndex: 0,
+                          indicator: backgrounds,
+                          gameIndex: 1),
+                      WordBox(
+                          word: wordsEntered[1],
+                          boxIndex: 1,
+                          indicator: backgrounds,
+                          gameIndex: 1),
+                      WordBox(
+                          word: wordsEntered[1],
+                          boxIndex: 2,
+                          indicator: backgrounds,
+                          gameIndex: 1),
+                      WordBox(
+                          word: wordsEntered[1],
+                          boxIndex: 3,
+                          indicator: backgrounds,
+                          gameIndex: 1),
+                      WordBox(
+                          word: wordsEntered[1],
+                          boxIndex: 4,
+                          indicator: backgrounds,
+                          gameIndex: 1)
                     ]
                   : [],
             ),
@@ -50,11 +90,31 @@ class _WordleHomePageState extends GameLogic {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: gameIndex >= 2
                   ? [
-                      WordBox(word: wordsEntered[2], boxIndex: 0),
-                      WordBox(word: wordsEntered[2], boxIndex: 1),
-                      WordBox(word: wordsEntered[2], boxIndex: 2),
-                      WordBox(word: wordsEntered[2], boxIndex: 3),
-                      WordBox(word: wordsEntered[2], boxIndex: 4)
+                      WordBox(
+                          word: wordsEntered[2],
+                          boxIndex: 0,
+                          indicator: backgrounds,
+                          gameIndex: 2),
+                      WordBox(
+                          word: wordsEntered[2],
+                          boxIndex: 1,
+                          indicator: backgrounds,
+                          gameIndex: 2),
+                      WordBox(
+                          word: wordsEntered[2],
+                          boxIndex: 2,
+                          indicator: backgrounds,
+                          gameIndex: 2),
+                      WordBox(
+                          word: wordsEntered[2],
+                          boxIndex: 3,
+                          indicator: backgrounds,
+                          gameIndex: 2),
+                      WordBox(
+                          word: wordsEntered[2],
+                          boxIndex: 4,
+                          indicator: backgrounds,
+                          gameIndex: 2)
                     ]
                   : [],
             ),
@@ -62,11 +122,31 @@ class _WordleHomePageState extends GameLogic {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: gameIndex >= 3
                   ? [
-                      WordBox(word: wordsEntered[3], boxIndex: 0),
-                      WordBox(word: wordsEntered[3], boxIndex: 1),
-                      WordBox(word: wordsEntered[3], boxIndex: 2),
-                      WordBox(word: wordsEntered[3], boxIndex: 3),
-                      WordBox(word: wordsEntered[3], boxIndex: 4)
+                      WordBox(
+                          word: wordsEntered[3],
+                          boxIndex: 0,
+                          indicator: backgrounds,
+                          gameIndex: 3),
+                      WordBox(
+                          word: wordsEntered[3],
+                          boxIndex: 1,
+                          indicator: backgrounds,
+                          gameIndex: 3),
+                      WordBox(
+                          word: wordsEntered[3],
+                          boxIndex: 2,
+                          indicator: backgrounds,
+                          gameIndex: 3),
+                      WordBox(
+                          word: wordsEntered[3],
+                          boxIndex: 3,
+                          indicator: backgrounds,
+                          gameIndex: 3),
+                      WordBox(
+                          word: wordsEntered[3],
+                          boxIndex: 4,
+                          indicator: backgrounds,
+                          gameIndex: 3)
                     ]
                   : [],
             ),

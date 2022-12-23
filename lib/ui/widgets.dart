@@ -3,12 +3,16 @@ import 'package:wordle_app/logic/functions.dart';
 import 'package:wordle_app/ui/elements.dart';
 
 class WordBox extends StatelessWidget {
-  WordBox({
-    Key? key,
-    required this.word,
-    required this.boxIndex,
-  }) : super(key: key);
+  WordBox(
+      {Key? key,
+      required this.word,
+      required this.boxIndex,
+      required this.indicator,
+      required this.gameIndex})
+      : super(key: key);
   String word;
+  List<String> indicator;
+  int gameIndex;
 
   int boxIndex;
   @override
@@ -16,7 +20,18 @@ class WordBox extends StatelessWidget {
     return Container(
         height: 60,
         width: 60,
-        decoration: MyDecorations.textFieldDecoration,
+        decoration: BoxDecoration(
+            shape: BoxShape.rectangle,
+            borderRadius: const BorderRadius.all(Radius.circular(3)),
+            color: indicator[gameIndex].length >= boxIndex + 1
+                ? (indicator[gameIndex][boxIndex] == "t"
+                    ? (MyColors.lastResultTrueColor)
+                    : (indicator[gameIndex][boxIndex] == "n"
+                        ? MyColors.lastResultSemiTrueColor
+                        : (indicator[gameIndex][boxIndex] == "f"
+                            ? MyColors.firstNeutralColor
+                            : MyColors.firstNeutralColor)))
+                : MyColors.firstNeutralColor),
         child: Center(
             child: Text((word.length >= boxIndex + 1) ? word[boxIndex] : "",
                 style: MyTextStyle.letterTextStyle)));
