@@ -10,11 +10,12 @@ class WordBox extends StatelessWidget {
       required this.indicator,
       required this.gameIndex})
       : super(key: key);
+
   String word;
   List<String> indicator;
   int gameIndex;
-
   int boxIndex;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -65,10 +66,6 @@ class LetterBox extends StatelessWidget {
         width: 30,
         color: MyColors.firstNeutralColor,
         margin: const EdgeInsets.symmetric(horizontal: 4),
-        child: Center(
-            child: Text(
-          letter,
-          style: MyTextStyle.letterTextStyle,
-        )));
+        child: Center(child: Text(letter, style: MyTextStyle.letterTextStyle)));
   }
 }

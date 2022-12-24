@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:wordle_app/main.dart';
 import 'package:wordle_app/ui/widgets.dart';
 import 'package:wordle_app/utils/alphabet.dart';
 
@@ -17,8 +18,18 @@ class _WordleHomePageState extends GameLogic {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:
-            AppBar(title: Center(child: MyTexts.titleText), toolbarHeight: 100),
+        appBar: AppBar(
+            leading: const SizedBox(),
+            centerTitle: true,
+            title: Center(child: MyTexts.titleText),
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    restartGame();
+                  },
+                  icon: const Icon(Icons.restart_alt_outlined))
+            ],
+            toolbarHeight: 100),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -157,39 +168,58 @@ class _WordleHomePageState extends GameLogic {
             child: Container(
                 height: 230,
                 decoration: MyDecorations.keyBoardDecoration,
-                child: Stack(
-                  children: [
-                    GridView.count(
-                        crossAxisCount: 7,
-                        mainAxisSpacing: 5,
-                        crossAxisSpacing: 5,
-                        padding: const EdgeInsets.all(5),
-                        children: alphabet
-                            .map((e) => RawMaterialButton(
-                                onPressed: () {
-                                  addLetter(e);
+                child: !gameFinished
+                    ? Stack(children: [
+                        GridView.count(
+                            crossAxisCount: 7,
+                            mainAxisSpacing: 5,
+                            crossAxisSpacing: 5,
+                            padding: const EdgeInsets.all(5),
+                            children: alphabet
+                                .map((e) => RawMaterialButton(
+                                    onPressed: () {
+                                      addLetter(e);
+                                    },
+                                    child: LetterBox(letter: e)))
+                                .toList()),
+                        Positioned(
+                            bottom: 10,
+                            right: 65,
+                            child: GestureDetector(
+                                onTap: () {
+                                  deleteLetter();
                                 },
-                                child: LetterBox(letter: e)))
-                            .toList()),
-                    Positioned(
-                      bottom: 10,
-                      right: 65,
-                      child: GestureDetector(
-                          onTap: () {
-                            deleteLetter();
-                          },
-                          child: OperatorButton(operator: "backspace")),
-                    ),
-                    Positioned(
-                      bottom: 10,
-                      right: 10,
-                      child: GestureDetector(
-                          onTap: () {
-                            enter();
-                          },
-                          child: OperatorButton(operator: "enter")),
-                    )
-                  ],
-                ))));
+                                child: OperatorButton(operator: "backspace"))),
+                        Positioned(
+                            bottom: 10,
+                            right: 10,
+                            child: GestureDetector(
+                                onTap: () {
+                                  enter();
+                                },
+                                child: OperatorButton(operator: "enter")))
+                      ])
+                    : Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          MyTexts.gameOverText,
+                          gameResult
+                              ? MyTexts.resultWinText
+                              : Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                      MyTexts.resultLoseText,
+                                      Text("$actualWord",
+                                          style:
+                                              MyTextStyle.resultWordTextStyle)
+                                    ]),
+                          MaterialButton(
+                              color: MyColors.firstNeutralColor,
+                              onPressed: () {
+                                restartGame();
+                              },
+                              child: const Text("Restart Game"))
+                        ],
+                      ))));
   }
 }

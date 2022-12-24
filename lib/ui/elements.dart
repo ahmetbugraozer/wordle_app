@@ -14,12 +14,21 @@ class MyColors {
 class MyTexts {
   static Text titleText =
       const Text("WORDLE", style: MyTextStyle.titleTextStyle);
+  static Text gameOverText =
+      const Text("Game Over!", style: MyTextStyle.titleTextStyle);
+  static Text resultWinText =
+      const Text("You Won!", style: MyTextStyle.resultTextStyle);
+  static Text resultLoseText =
+      const Text("You Lose! The word is ", style: MyTextStyle.resultTextStyle);
 }
 
 class MyTextStyle {
   static const TextStyle titleTextStyle =
       TextStyle(fontSize: 45, letterSpacing: 2);
   static const TextStyle letterTextStyle = TextStyle(fontSize: 30);
+  static const TextStyle resultTextStyle = TextStyle(fontSize: 25);
+  static const TextStyle resultWordTextStyle =
+      TextStyle(fontSize: 25, color: Colors.grey);
 }
 
 class MyDecorations {

@@ -10,6 +10,7 @@ abstract class GameLogic extends State<WordleHomePage> {
   late List<String> wordsEntered;
   late List<String> backgrounds;
   late bool gameFinished;
+  late bool gameResult;
 
   @override
   void initState() {
@@ -19,6 +20,7 @@ abstract class GameLogic extends State<WordleHomePage> {
     wordsEntered = ["", "", "", "", ""];
     backgrounds = ["", "", "", "", ""];
     gameFinished = false;
+    gameResult = false;
   }
 
   void addLetter(String letter) {
@@ -59,13 +61,29 @@ abstract class GameLogic extends State<WordleHomePage> {
       if (wordsEntered[gameIndex].length == 5 && gameFinished == false) {
         if (gameIndex < 4) {
           evaluateAndChangeBackgrounds();
-          backgrounds[gameIndex] == "ttttt" ? gameFinished = true : gameIndex++;
-        } else if (gameIndex == 4) {
-          gameFinished = true;
+          if (backgrounds[gameIndex] == "ttttt") {
+            gameFinished = true;
+            gameResult = true;
+          } else if (backgrounds[3] != "") {
+            gameFinished = true;
+            gameResult = false;
+          } else {
+            gameIndex++;
+          }
         } else {
           true;
         }
       }
+    });
+  }
+
+  void restartGame() {
+    setState(() {
+      actualWord = "PLAIN";
+      gameIndex = 0;
+      wordsEntered = ["", "", "", "", ""];
+      backgrounds = ["", "", "", "", ""];
+      gameFinished = false;
     });
   }
 }
