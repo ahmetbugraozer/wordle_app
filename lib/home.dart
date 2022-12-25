@@ -161,7 +161,6 @@ class _WordleHomePageState extends GameLogic {
                     ]
                   : [],
             ),
-            SizedBox(height: 50)
           ],
         ),
         bottomNavigationBar: BottomAppBar(
@@ -218,7 +217,7 @@ class _WordleHomePageState extends GameLogic {
                               onPressed: () {
                                 restartGame();
                               },
-                              child: const Text("Restart Game"))
+                              child: MyTexts.restartText)
                         ],
                       ))));
   }

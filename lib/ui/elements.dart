@@ -19,7 +19,8 @@ class MyTexts {
   static Text resultWinText =
       const Text("You Won!", style: MyTextStyle.resultTextStyle);
   static Text resultLoseText =
-      const Text("You Lose! The word is ", style: MyTextStyle.resultTextStyle);
+      const Text("You Lose! The word was ", style: MyTextStyle.resultTextStyle);
+  static Text restartText = const Text("Restart Game");
 }
 
 class MyTextStyle {

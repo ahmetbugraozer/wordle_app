@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:wordle_app/utils/words.dart';
 
 import '../ui/elements.dart';
 import '../home.dart';
@@ -15,7 +18,8 @@ abstract class GameLogic extends State<WordleHomePage> {
   @override
   void initState() {
     super.initState();
-    actualWord = "PLAIN";
+    actualWord = words[Random().nextInt(words.length)].toUpperCase();
+    print(actualWord);
     gameIndex = 0;
     wordsEntered = ["", "", "", "", ""];
     backgrounds = ["", "", "", "", ""];
@@ -41,16 +45,24 @@ abstract class GameLogic extends State<WordleHomePage> {
   }
 
   void evaluateAndChangeBackgrounds() {
+    List<String> tempWord = ["", "", "", "", ""];
     if (wordsEntered[gameIndex].length == 5) {
       for (int i = 0; i < 5; i++) {
-        if (wordsEntered[gameIndex][i] == actualWord[i]) {
+        tempWord[i] = actualWord[i];
+      }
+      print(tempWord);
+      for (int i = 0; i < 5; i++) {
+        if (tempWord[i] == wordsEntered[gameIndex][i]) {
           backgrounds[gameIndex] += "t";
-        } else if (actualWord.contains(wordsEntered[gameIndex][i]) &&
-            actualWord[i] != wordsEntered[gameIndex][i]) {
+          tempWord[i] = "";
+        } else if (tempWord.contains(wordsEntered[gameIndex][i]) &&
+            wordsEntered[gameIndex][i] != tempWord[i]) {
           backgrounds[gameIndex] += "n";
-        } else if (!(actualWord.contains(wordsEntered[gameIndex][i]))) {
+          tempWord[tempWord.indexOf(wordsEntered[gameIndex][i])] = "";
+        } else if (!(tempWord.contains(wordsEntered[gameIndex][i]))) {
           backgrounds[gameIndex] += "f";
         }
+        print(tempWord);
       }
     }
     print(backgrounds);
@@ -61,6 +73,7 @@ abstract class GameLogic extends State<WordleHomePage> {
       if (wordsEntered[gameIndex].length == 5 && gameFinished == false) {
         if (gameIndex < 4) {
           evaluateAndChangeBackgrounds();
+
           if (backgrounds[gameIndex] == "ttttt") {
             gameFinished = true;
             gameResult = true;
