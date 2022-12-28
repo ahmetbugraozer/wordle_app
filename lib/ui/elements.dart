@@ -6,14 +6,16 @@ class MyColors {
   static Color firstNeutralColor = const Color.fromARGB(255, 91, 91, 91);
   static Color lastResultSemiTrueColor = Colors.yellow;
   static Color lastResultTrueColor = Colors.green;
-  static Color fullTrueColor = const Color.fromARGB(255, 72, 163, 75);
-  static Color halfTrueColor = const Color.fromARGB(255, 208, 195, 76);
-  static Color fullFalseColor = const Color.fromARGB(255, 63, 63, 63);
+  static Color keyboardFalseColor = Colors.black;
 }
 
 class MyTexts {
   static Text titleText =
       const Text("WORDLE", style: MyTextStyle.titleTextStyle);
+  static Text selectionText = const Text(
+      "Select amount of letter to start playing:",
+      style: MyTextStyle.selectionTextStyle);
+
   static Text gameOverText =
       const Text("Game Over!", style: MyTextStyle.titleTextStyle);
   static Text resultWinText =
@@ -26,6 +28,7 @@ class MyTexts {
 class MyTextStyle {
   static const TextStyle titleTextStyle =
       TextStyle(fontSize: 45, letterSpacing: 2);
+  static const TextStyle selectionTextStyle = TextStyle(fontSize: 20);
   static const TextStyle letterTextStyle = TextStyle(fontSize: 30);
   static const TextStyle resultTextStyle = TextStyle(fontSize: 25);
   static const TextStyle resultWordTextStyle =

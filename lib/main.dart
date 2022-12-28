@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'homepage/home.dart';
 import 'ui/elements.dart';
-
-import 'home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: MyThemes.projectTheme,
-      home: WordleHomePage(),
+      home: const WordleGameHomePage(),
     );
   }
 }

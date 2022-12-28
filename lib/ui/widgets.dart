@@ -1,6 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:wordle_app/logic/functions.dart';
+import 'package:wordle_app/gamepages/4/page_four_letter.dart';
+import 'package:wordle_app/gamepages/6/page_six_letter.dart';
+import 'package:wordle_app/gamepages/7/page_seven_letter.dart';
 import 'package:wordle_app/ui/elements.dart';
+import '../gamepages/5/page_five_letter.dart';
+import '../gamepages/8/page_eight_letter.dart';
+
+class GameSelectionButton extends StatelessWidget {
+  GameSelectionButton({Key? key, required this.letterAmount}) : super(key: key);
+  late String letterAmount;
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(
+        minWidth: 150,
+        color: MyColors.firstNeutralColor,
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+            if (letterAmount == "Four") {
+              return const FourLetterPage();
+            } else if (letterAmount == "Five") {
+              return const FiveLetterPage();
+            } else if (letterAmount == "Six") {
+              return const SixLetterPage();
+            } else if (letterAmount == "Seven") {
+              return const SevenLetterPage();
+            } else {
+              return const EightLetterPage();
+            }
+          }));
+        },
+        child: Text("$letterAmount Letters"));
+  }
+}
 
 class WordBox extends StatelessWidget {
   WordBox(
@@ -21,21 +52,25 @@ class WordBox extends StatelessWidget {
     return Container(
         height: 60,
         width: 60,
-        decoration: BoxDecoration(
-            shape: BoxShape.rectangle,
-            borderRadius: const BorderRadius.all(Radius.circular(3)),
-            color: indicator[gameIndex].length >= boxIndex + 1
-                ? (indicator[gameIndex][boxIndex] == "t"
-                    ? (MyColors.lastResultTrueColor)
-                    : (indicator[gameIndex][boxIndex] == "n"
-                        ? MyColors.lastResultSemiTrueColor
-                        : (indicator[gameIndex][boxIndex] == "f"
-                            ? MyColors.firstNeutralColor
-                            : MyColors.firstNeutralColor)))
-                : MyColors.firstNeutralColor),
+        decoration: wordBoxDecoration(),
         child: Center(
             child: Text((word.length >= boxIndex + 1) ? word[boxIndex] : "",
                 style: MyTextStyle.letterTextStyle)));
+  }
+
+  BoxDecoration wordBoxDecoration() {
+    return BoxDecoration(
+        shape: BoxShape.rectangle,
+        borderRadius: const BorderRadius.all(Radius.circular(3)),
+        color: indicator[gameIndex].length >= boxIndex + 1
+            ? (indicator[gameIndex][boxIndex] == "t"
+                ? (MyColors.lastResultTrueColor)
+                : (indicator[gameIndex][boxIndex] == "n"
+                    ? MyColors.lastResultSemiTrueColor
+                    : (indicator[gameIndex][boxIndex] == "f"
+                        ? MyColors.firstNeutralColor
+                        : MyColors.firstNeutralColor)))
+            : MyColors.firstNeutralColor);
   }
 }
 
@@ -57,15 +92,18 @@ class OperatorButton extends StatelessWidget {
 
 class LetterBox extends StatelessWidget {
   late String letter;
-  LetterBox({Key? key, required this.letter}) : super(key: key);
+  late bool isTrue;
+  LetterBox({Key? key, required this.letter, required this.isTrue})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
         height: 50,
         width: 30,
-        color: MyColors.firstNeutralColor,
-        margin: const EdgeInsets.symmetric(horizontal: 4),
+        color:
+            isTrue ? MyColors.firstNeutralColor : MyColors.keyboardFalseColor,
+        margin: const EdgeInsets.symmetric(horizontal: 10),
         child: Center(child: Text(letter, style: MyTextStyle.letterTextStyle)));
   }
 }

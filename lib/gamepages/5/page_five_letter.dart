@@ -1,27 +1,24 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:wordle_app/main.dart';
 import 'package:wordle_app/ui/widgets.dart';
 import 'package:wordle_app/utils/alphabet.dart';
+import '../../ui/elements.dart';
+import 'functions_five_letter.dart';
 
-import 'ui/elements.dart';
-import 'logic/functions.dart';
-
-class WordleHomePage extends StatefulWidget {
-  const WordleHomePage({super.key});
+class FiveLetterPage extends StatefulWidget {
+  const FiveLetterPage({super.key});
 
   @override
-  State<WordleHomePage> createState() => _WordleHomePageState();
+  State<FiveLetterPage> createState() => _FiveLetterPageState();
 }
 
-class _WordleHomePageState extends GameLogic {
+class _FiveLetterPageState extends FiveLetterLogic {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            leading: const SizedBox(),
             centerTitle: true,
             title: Center(child: MyTexts.titleText),
+            elevation: 5,
             actions: [
               IconButton(
                   onPressed: () {
@@ -30,10 +27,9 @@ class _WordleHomePageState extends GameLogic {
                   icon: const Icon(Icons.restart_alt_outlined))
             ],
             toolbarHeight: 100),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Row(
+        body:
+            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: gameIndex >= 0
                   ? [
@@ -63,9 +59,8 @@ class _WordleHomePageState extends GameLogic {
                           indicator: backgrounds,
                           gameIndex: 0)
                     ]
-                  : [],
-            ),
-            Row(
+                  : []),
+          Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: gameIndex >= 1
                   ? [
@@ -95,9 +90,8 @@ class _WordleHomePageState extends GameLogic {
                           indicator: backgrounds,
                           gameIndex: 1)
                     ]
-                  : [],
-            ),
-            Row(
+                  : []),
+          Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: gameIndex >= 2
                   ? [
@@ -127,9 +121,8 @@ class _WordleHomePageState extends GameLogic {
                           indicator: backgrounds,
                           gameIndex: 2)
                     ]
-                  : [],
-            ),
-            Row(
+                  : []),
+          Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: gameIndex >= 3
                   ? [
@@ -159,10 +152,39 @@ class _WordleHomePageState extends GameLogic {
                           indicator: backgrounds,
                           gameIndex: 3)
                     ]
-                  : [],
-            ),
-          ],
-        ),
+                  : []),
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: gameIndex >= 4
+                  ? [
+                      WordBox(
+                          word: wordsEntered[4],
+                          boxIndex: 0,
+                          indicator: backgrounds,
+                          gameIndex: 4),
+                      WordBox(
+                          word: wordsEntered[4],
+                          boxIndex: 1,
+                          indicator: backgrounds,
+                          gameIndex: 4),
+                      WordBox(
+                          word: wordsEntered[4],
+                          boxIndex: 2,
+                          indicator: backgrounds,
+                          gameIndex: 4),
+                      WordBox(
+                          word: wordsEntered[4],
+                          boxIndex: 3,
+                          indicator: backgrounds,
+                          gameIndex: 4),
+                      WordBox(
+                          word: wordsEntered[4],
+                          boxIndex: 4,
+                          indicator: backgrounds,
+                          gameIndex: 4)
+                    ]
+                  : [])
+        ]),
         bottomNavigationBar: BottomAppBar(
             child: Container(
                 height: 230,
@@ -175,11 +197,14 @@ class _WordleHomePageState extends GameLogic {
                             crossAxisSpacing: 5,
                             padding: const EdgeInsets.all(5),
                             children: alphabet
-                                .map((e) => RawMaterialButton(
-                                    onPressed: () {
-                                      addLetter(e);
-                                    },
-                                    child: LetterBox(letter: e)))
+                                .map((e) => !wrongLetters.contains(e)
+                                    ? RawMaterialButton(
+                                        onPressed: () {
+                                          addLetter(e);
+                                        },
+                                        child:
+                                            LetterBox(letter: e, isTrue: true))
+                                    : LetterBox(letter: e, isTrue: false))
                                 .toList()),
                         Positioned(
                             bottom: 10,
@@ -201,24 +226,23 @@ class _WordleHomePageState extends GameLogic {
                     : Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          MyTexts.gameOverText,
-                          gameResult
-                              ? MyTexts.resultWinText
-                              : Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                      MyTexts.resultLoseText,
-                                      Text("$actualWord",
-                                          style:
-                                              MyTextStyle.resultWordTextStyle)
-                                    ]),
-                          MaterialButton(
-                              color: MyColors.firstNeutralColor,
-                              onPressed: () {
-                                restartGame();
-                              },
-                              child: MyTexts.restartText)
-                        ],
-                      ))));
+                            MyTexts.gameOverText,
+                            gameResult
+                                ? MyTexts.resultWinText
+                                : Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                        MyTexts.resultLoseText,
+                                        Text("$actualWord.",
+                                            style:
+                                                MyTextStyle.resultWordTextStyle)
+                                      ]),
+                            MaterialButton(
+                                color: MyColors.firstNeutralColor,
+                                onPressed: () {
+                                  restartGame();
+                                },
+                                child: MyTexts.restartText)
+                          ]))));
   }
 }
