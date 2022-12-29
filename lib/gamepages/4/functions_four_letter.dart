@@ -102,8 +102,8 @@ abstract class FourLetterLogic extends State<FourLetterPage> {
       trueLetters = "";
       neutralLetters = "";
       wrongLetters = "";
-      wordsEntered = ["", "", "", "", ""];
-      backgrounds = ["", "", "", "", ""];
+      wordsEntered = ["", "", "", ""];
+      backgrounds = ["", "", "", ""];
       gameFinished = false;
     });
   }

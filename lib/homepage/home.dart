@@ -23,8 +23,6 @@ class _WordleGameHomePageState extends State<WordleGameHomePage> {
           GameSelectionButton(letterAmount: "Four"),
           GameSelectionButton(letterAmount: "Five"),
           GameSelectionButton(letterAmount: "Six"),
-          GameSelectionButton(letterAmount: "Seven"),
-          GameSelectionButton(letterAmount: "Eight"),
           const Spacer(flex: 2)
         ]));
   }
