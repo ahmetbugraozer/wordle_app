@@ -16,7 +16,6 @@ class _FourLetterPageState extends FourLetterLogic {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            centerTitle: true,
             title: Center(child: MyTexts.titleText),
             elevation: 5,
             actions: [
@@ -28,7 +27,11 @@ class _FourLetterPageState extends FourLetterLogic {
             ],
             toolbarHeight: 100),
         body:
-            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+          SizedBox(
+              child: continueStatus
+                  ? null
+                  : Center(child: MyTexts.inappriopriateWord)),
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: gameIndex >= 0
@@ -158,7 +161,7 @@ class _FourLetterPageState extends FourLetterLogic {
                           indicator: backgrounds,
                           gameIndex: 4),
                     ]
-                  : [])
+                  : []),
         ]),
         bottomNavigationBar: BottomAppBar(
             child: Container(

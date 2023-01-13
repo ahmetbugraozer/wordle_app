@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:wordle_app/gamepages/5/functions_five_letter.dart';
 import 'package:wordle_app/utils/words/6/words.dart';
 import 'page_six_letter.dart';
 
@@ -14,6 +13,7 @@ abstract class SixLetterLogic extends State<SixLetterPage> {
   late String trueLetters;
   late String neutralLetters;
   late String wrongLetters;
+  late bool continueStatus;
 
   @override
   void initState() {
@@ -24,10 +24,11 @@ abstract class SixLetterLogic extends State<SixLetterPage> {
     trueLetters = "";
     neutralLetters = "";
     wrongLetters = "";
-    wordsEntered = ["", "", "", "", "", ""];
-    backgrounds = ["", "", "", "", "", ""];
+    wordsEntered = ["", "", "", "", ""];
+    backgrounds = ["", "", "", "", ""];
     gameFinished = false;
     gameResult = false;
+    continueStatus = true;
   }
 
   void addLetter(String letter) {
@@ -78,19 +79,33 @@ abstract class SixLetterLogic extends State<SixLetterPage> {
   void enter() {
     setState(() {
       if (wordsEntered[gameIndex].length == 6 && gameFinished == false) {
-        if (gameIndex < 6) {
-          evaluateAndChangeBackgrounds();
-          if (backgrounds[gameIndex] == "tttttt") {
-            gameFinished = true;
-            gameResult = true;
-          } else if (backgrounds[5] != "") {
-            gameFinished = true;
-            gameResult = false;
+        String tempWord1 = wordsEntered[gameIndex].toLowerCase();
+        String tempWord2 = "";
+        for (int i = 0; i < tempWord1.length; i++) {
+          if (i == 0) {
+            tempWord2 += tempWord1[i].toUpperCase();
           } else {
-            gameIndex++;
+            tempWord2 += tempWord1[i];
+          }
+        }
+        if (words.contains(tempWord1) || words.contains(tempWord2)) {
+          if (gameIndex < 5) {
+            evaluateAndChangeBackgrounds();
+            continueStatus = true;
+            if (backgrounds[gameIndex] == "tttttt") {
+              gameFinished = true;
+              gameResult = true;
+            } else if (backgrounds[4] != "") {
+              gameFinished = true;
+              gameResult = false;
+            } else {
+              gameIndex++;
+            }
+          } else {
+            true;
           }
         } else {
-          true;
+          continueStatus = false;
         }
       }
     });
@@ -99,13 +114,16 @@ abstract class SixLetterLogic extends State<SixLetterPage> {
   void restartGame() {
     setState(() {
       actualWord = words[Random().nextInt(words.length)].toUpperCase();
+      print(actualWord);
       gameIndex = 0;
       trueLetters = "";
       neutralLetters = "";
       wrongLetters = "";
-      wordsEntered = ["", "", "", "", "", ""];
-      backgrounds = ["", "", "", "", "", ""];
+      wordsEntered = ["", "", "", "", ""];
+      backgrounds = ["", "", "", "", ""];
       gameFinished = false;
+      gameResult = false;
+      continueStatus = true;
     });
   }
 }

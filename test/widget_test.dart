@@ -27,4 +27,14 @@ void main() {
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
+
+  test("index", () {
+    List<String> removeDuplicates(List<String> inputList) {
+      return inputList.toSet().toList();
+    }
+
+    List<String> originalList = ["1", "2", "3", "1", "2", "3", "4", "5"];
+    List<String> newList = removeDuplicates(originalList);
+    print(newList); // Output: [1, 2, 3, 4, 5]
+  });
 }

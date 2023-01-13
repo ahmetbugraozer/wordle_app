@@ -13,6 +13,7 @@ abstract class FourLetterLogic extends State<FourLetterPage> {
   late String trueLetters;
   late String neutralLetters;
   late String wrongLetters;
+  late bool continueStatus;
 
   @override
   void initState() {
@@ -23,10 +24,11 @@ abstract class FourLetterLogic extends State<FourLetterPage> {
     trueLetters = "";
     neutralLetters = "";
     wrongLetters = "";
-    wordsEntered = ["", "", "", ""];
-    backgrounds = ["", "", "", ""];
+    wordsEntered = ["", "", "", "", ""];
+    backgrounds = ["", "", "", "", ""];
     gameFinished = false;
     gameResult = false;
+    continueStatus = true;
   }
 
   void addLetter(String letter) {
@@ -77,19 +79,34 @@ abstract class FourLetterLogic extends State<FourLetterPage> {
   void enter() {
     setState(() {
       if (wordsEntered[gameIndex].length == 4 && gameFinished == false) {
-        if (gameIndex < 4) {
-          evaluateAndChangeBackgrounds();
-          if (backgrounds[gameIndex] == "tttt") {
-            gameFinished = true;
-            gameResult = true;
-          } else if (backgrounds[3] != "") {
-            gameFinished = true;
-            gameResult = false;
+        String tempWord1 = wordsEntered[gameIndex].toLowerCase();
+        String tempWord2 = "";
+        for (int i = 0; i < tempWord1.length; i++) {
+          if (i == 0) {
+            tempWord2 += tempWord1[i].toUpperCase();
           } else {
-            gameIndex++;
+            tempWord2 += tempWord1[i];
+          }
+        }
+
+        if (words.contains(tempWord1) || words.contains(tempWord2)) {
+          if (gameIndex < 5) {
+            evaluateAndChangeBackgrounds();
+            continueStatus = true;
+            if (backgrounds[gameIndex] == "tttt") {
+              gameFinished = true;
+              gameResult = true;
+            } else if (backgrounds[4] != "") {
+              gameFinished = true;
+              gameResult = false;
+            } else {
+              gameIndex++;
+            }
+          } else {
+            true;
           }
         } else {
-          true;
+          continueStatus = false;
         }
       }
     });
@@ -98,13 +115,16 @@ abstract class FourLetterLogic extends State<FourLetterPage> {
   void restartGame() {
     setState(() {
       actualWord = words[Random().nextInt(words.length)].toUpperCase();
+      print(actualWord);
       gameIndex = 0;
       trueLetters = "";
       neutralLetters = "";
       wrongLetters = "";
-      wordsEntered = ["", "", "", ""];
-      backgrounds = ["", "", "", ""];
+      wordsEntered = ["", "", "", "", ""];
+      backgrounds = ["", "", "", "", ""];
       gameFinished = false;
+      gameResult = false;
+      continueStatus = true;
     });
   }
 }

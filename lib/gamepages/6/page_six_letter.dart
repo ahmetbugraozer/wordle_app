@@ -28,7 +28,11 @@ class _SixLetterPageState extends SixLetterLogic {
             ],
             toolbarHeight: 100),
         body:
-            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+          SizedBox(
+              child: continueStatus
+                  ? null
+                  : Center(child: MyTexts.inappriopriateWord)),
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: gameIndex >= 0

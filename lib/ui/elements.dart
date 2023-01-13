@@ -4,8 +4,8 @@ class MyColors {
   static Color appBarColor = Colors.transparent;
   static Color backgroundColor = const Color.fromARGB(255, 31, 31, 31);
   static Color firstNeutralColor = const Color.fromARGB(255, 91, 91, 91);
-  static Color lastResultSemiTrueColor = Colors.yellow;
-  static Color lastResultTrueColor = Colors.green;
+  static Color lastResultSemiTrueColor = Color.fromARGB(255, 208, 192, 48);
+  static Color lastResultTrueColor = Color.fromARGB(255, 61, 142, 64);
   static Color keyboardFalseColor = Colors.black;
 }
 
@@ -20,9 +20,11 @@ class MyTexts {
       const Text("Game Over!", style: MyTextStyle.titleTextStyle);
   static Text resultWinText =
       const Text("You Won!", style: MyTextStyle.resultTextStyle);
-  static Text resultLoseText =
-      const Text("You Lose! The word was ", style: MyTextStyle.resultTextStyle);
+  static Text resultLoseText = const Text("You Lose! The word was ",
+      style: MyTextStyle.selectionTextStyle);
   static Text restartText = const Text("Restart Game");
+  static Text inappriopriateWord = const Text("Please enter a valid word!",
+      style: MyTextStyle.warningTextStyle);
 }
 
 class MyTextStyle {
@@ -33,6 +35,7 @@ class MyTextStyle {
   static const TextStyle resultTextStyle = TextStyle(fontSize: 25);
   static const TextStyle resultWordTextStyle =
       TextStyle(fontSize: 25, color: Colors.grey);
+  static const TextStyle warningTextStyle = TextStyle(fontSize: 20);
 }
 
 class MyDecorations {
