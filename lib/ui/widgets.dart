@@ -11,7 +11,7 @@ class ProjectTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: SizedBox(height: 180, width: 180, child: Images.projectIcon));
+        child: SizedBox(height: 90, width: 180, child: Images.projectIcon));
   }
 }
 
@@ -22,6 +22,7 @@ class GameSelectionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
         minWidth: 150,
+        height: 40,
         color: MyColors.firstNeutralColor,
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (context) {

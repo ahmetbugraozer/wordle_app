@@ -13,14 +13,17 @@ class _WordleGameHomePageState extends State<WordleGameHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: ProjectTitle(), toolbarHeight: 80, elevation: 5),
+        appBar: AppBar(
+            title: const ProjectTitle(), toolbarHeight: 80, elevation: 5),
         body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Expanded(flex: 1, child: Center(child: MyTexts.selectionText)),
+          Expanded(flex: 12, child: Center(child: MyTexts.selectionText)),
           const Spacer(flex: 1),
           GameSelectionButton(letterAmount: "Four"),
+          const Spacer(flex: 1),
           GameSelectionButton(letterAmount: "Five"),
+          const Spacer(flex: 1),
           GameSelectionButton(letterAmount: "Six"),
-          const Spacer(flex: 2)
+          const Spacer(flex: 18)
         ]));
   }
 }
