@@ -16,8 +16,8 @@ class _WordleGameHomePageState extends State<WordleGameHomePage> {
         appBar: AppBar(
             title: const ProjectTitle(), toolbarHeight: 80, elevation: 5),
         body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Expanded(flex: 12, child: Center(child: MyTexts.selectionText)),
-          const Spacer(flex: 1),
+          Expanded(flex: 10, child: Center(child: MyTexts.selectionText)),
+          const Spacer(flex: 2),
           GameSelectionButton(letterAmount: "Four"),
           const Spacer(flex: 1),
           GameSelectionButton(letterAmount: "Five"),
