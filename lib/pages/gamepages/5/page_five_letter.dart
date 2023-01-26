@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
-import '../../ui/widgets.dart';
-import '../../utils/alphabet.dart';
-import "functions_six_letter.dart";
-import '../../ui/elements.dart';
+import 'package:wordle_app/ui/widgets.dart';
+import 'package:wordle_app/utils/alphabet.dart';
+import '../../../ui/elements.dart';
+import 'functions_five_letter.dart';
 
-class SixLetterPage extends StatefulWidget {
-  const SixLetterPage({super.key});
+class FiveLetterPage extends StatefulWidget {
+  const FiveLetterPage({super.key});
 
   @override
-  State<SixLetterPage> createState() => _SixLetterPageState();
+  State<FiveLetterPage> createState() => _FiveLetterPageState();
 }
 
-class _SixLetterPageState extends SixLetterLogic {
+class _FiveLetterPageState extends FiveLetterLogic {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            centerTitle: true,
-            title: Center(child: MyTexts.titleText),
+            title: ProjectTitle(),
             elevation: 5,
             actions: [
               IconButton(
@@ -26,7 +25,7 @@ class _SixLetterPageState extends SixLetterLogic {
                   },
                   icon: const Icon(Icons.restart_alt_outlined))
             ],
-            toolbarHeight: 100),
+            toolbarHeight: 80),
         body:
             Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           SizedBox(
@@ -61,11 +60,6 @@ class _SixLetterPageState extends SixLetterLogic {
                           word: wordsEntered[0],
                           boxIndex: 4,
                           indicator: backgrounds,
-                          gameIndex: 0),
-                      WordBox(
-                          word: wordsEntered[0],
-                          boxIndex: 5,
-                          indicator: backgrounds,
                           gameIndex: 0)
                     ]
                   : []),
@@ -96,11 +90,6 @@ class _SixLetterPageState extends SixLetterLogic {
                       WordBox(
                           word: wordsEntered[1],
                           boxIndex: 4,
-                          indicator: backgrounds,
-                          gameIndex: 1),
-                      WordBox(
-                          word: wordsEntered[1],
-                          boxIndex: 5,
                           indicator: backgrounds,
                           gameIndex: 1)
                     ]
@@ -133,11 +122,6 @@ class _SixLetterPageState extends SixLetterLogic {
                           word: wordsEntered[2],
                           boxIndex: 4,
                           indicator: backgrounds,
-                          gameIndex: 2),
-                      WordBox(
-                          word: wordsEntered[2],
-                          boxIndex: 5,
-                          indicator: backgrounds,
                           gameIndex: 2)
                     ]
                   : []),
@@ -169,11 +153,6 @@ class _SixLetterPageState extends SixLetterLogic {
                           word: wordsEntered[3],
                           boxIndex: 4,
                           indicator: backgrounds,
-                          gameIndex: 3),
-                      WordBox(
-                          word: wordsEntered[3],
-                          boxIndex: 5,
-                          indicator: backgrounds,
                           gameIndex: 3)
                     ]
                   : []),
@@ -204,11 +183,6 @@ class _SixLetterPageState extends SixLetterLogic {
                       WordBox(
                           word: wordsEntered[4],
                           boxIndex: 4,
-                          indicator: backgrounds,
-                          gameIndex: 4),
-                      WordBox(
-                          word: wordsEntered[4],
-                          boxIndex: 5,
                           indicator: backgrounds,
                           gameIndex: 4)
                     ]

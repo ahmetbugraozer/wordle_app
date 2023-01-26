@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import '../../ui/widgets.dart';
-import '../../utils/alphabet.dart';
-import "functions_four_letter.dart";
-import '../../ui/elements.dart';
+import '../../../ui/widgets.dart';
+import '../../../utils/alphabet.dart';
+import "functions_six_letter.dart";
+import '../../../ui/elements.dart';
 
-class FourLetterPage extends StatefulWidget {
-  const FourLetterPage({super.key});
+class SixLetterPage extends StatefulWidget {
+  const SixLetterPage({super.key});
 
   @override
-  State<FourLetterPage> createState() => _FourLetterPageState();
+  State<SixLetterPage> createState() => _SixLetterPageState();
 }
 
-class _FourLetterPageState extends FourLetterLogic {
+class _SixLetterPageState extends SixLetterLogic {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: Center(child: MyTexts.titleText),
+            title: ProjectTitle(),
             elevation: 5,
             actions: [
               IconButton(
@@ -25,7 +25,7 @@ class _FourLetterPageState extends FourLetterLogic {
                   },
                   icon: const Icon(Icons.restart_alt_outlined))
             ],
-            toolbarHeight: 100),
+            toolbarHeight: 80),
         body:
             Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           SizedBox(
@@ -56,6 +56,16 @@ class _FourLetterPageState extends FourLetterLogic {
                           boxIndex: 3,
                           indicator: backgrounds,
                           gameIndex: 0),
+                      WordBox(
+                          word: wordsEntered[0],
+                          boxIndex: 4,
+                          indicator: backgrounds,
+                          gameIndex: 0),
+                      WordBox(
+                          word: wordsEntered[0],
+                          boxIndex: 5,
+                          indicator: backgrounds,
+                          gameIndex: 0)
                     ]
                   : []),
           Row(
@@ -82,6 +92,16 @@ class _FourLetterPageState extends FourLetterLogic {
                           boxIndex: 3,
                           indicator: backgrounds,
                           gameIndex: 1),
+                      WordBox(
+                          word: wordsEntered[1],
+                          boxIndex: 4,
+                          indicator: backgrounds,
+                          gameIndex: 1),
+                      WordBox(
+                          word: wordsEntered[1],
+                          boxIndex: 5,
+                          indicator: backgrounds,
+                          gameIndex: 1)
                     ]
                   : []),
           Row(
@@ -108,6 +128,16 @@ class _FourLetterPageState extends FourLetterLogic {
                           boxIndex: 3,
                           indicator: backgrounds,
                           gameIndex: 2),
+                      WordBox(
+                          word: wordsEntered[2],
+                          boxIndex: 4,
+                          indicator: backgrounds,
+                          gameIndex: 2),
+                      WordBox(
+                          word: wordsEntered[2],
+                          boxIndex: 5,
+                          indicator: backgrounds,
+                          gameIndex: 2)
                     ]
                   : []),
           Row(
@@ -134,6 +164,16 @@ class _FourLetterPageState extends FourLetterLogic {
                           boxIndex: 3,
                           indicator: backgrounds,
                           gameIndex: 3),
+                      WordBox(
+                          word: wordsEntered[3],
+                          boxIndex: 4,
+                          indicator: backgrounds,
+                          gameIndex: 3),
+                      WordBox(
+                          word: wordsEntered[3],
+                          boxIndex: 5,
+                          indicator: backgrounds,
+                          gameIndex: 3)
                     ]
                   : []),
           Row(
@@ -160,8 +200,18 @@ class _FourLetterPageState extends FourLetterLogic {
                           boxIndex: 3,
                           indicator: backgrounds,
                           gameIndex: 4),
+                      WordBox(
+                          word: wordsEntered[4],
+                          boxIndex: 4,
+                          indicator: backgrounds,
+                          gameIndex: 4),
+                      WordBox(
+                          word: wordsEntered[4],
+                          boxIndex: 5,
+                          indicator: backgrounds,
+                          gameIndex: 4)
                     ]
-                  : []),
+                  : [])
         ]),
         bottomNavigationBar: BottomAppBar(
             child: Container(

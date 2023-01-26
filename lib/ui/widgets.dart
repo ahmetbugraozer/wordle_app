@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:wordle_app/gamepages/4/page_four_letter.dart';
-import 'package:wordle_app/gamepages/6/page_six_letter.dart';
+import 'package:wordle_app/pages/gamepages/4/page_four_letter.dart';
+import 'package:wordle_app/pages/gamepages/6/page_six_letter.dart';
 
 import 'package:wordle_app/ui/elements.dart';
-import '../gamepages/5/page_five_letter.dart';
+import '../pages/gamepages/5/page_five_letter.dart';
+
+class ProjectTitle extends StatelessWidget {
+  const ProjectTitle({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: SizedBox(height: 180, width: 180, child: Images.projectIcon));
+  }
+}
 
 class GameSelectionButton extends StatelessWidget {
   GameSelectionButton({Key? key, required this.letterAmount}) : super(key: key);

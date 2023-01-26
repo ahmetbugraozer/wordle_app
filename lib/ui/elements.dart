@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+class Images {
+  static Image projectIcon = Image.asset("assets/iconShrink.png");
+}
+
 class MyColors {
   static Color appBarColor = Colors.transparent;
   static Color backgroundColor = const Color.fromARGB(255, 31, 31, 31);

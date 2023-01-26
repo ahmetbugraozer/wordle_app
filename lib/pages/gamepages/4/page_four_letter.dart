@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:wordle_app/ui/widgets.dart';
-import 'package:wordle_app/utils/alphabet.dart';
-import '../../ui/elements.dart';
-import 'functions_five_letter.dart';
+import '../../../ui/widgets.dart';
+import '../../../utils/alphabet.dart';
+import "functions_four_letter.dart";
+import '../../../ui/elements.dart';
 
-class FiveLetterPage extends StatefulWidget {
-  const FiveLetterPage({super.key});
+class FourLetterPage extends StatefulWidget {
+  const FourLetterPage({super.key});
 
   @override
-  State<FiveLetterPage> createState() => _FiveLetterPageState();
+  State<FourLetterPage> createState() => _FourLetterPageState();
 }
 
-class _FiveLetterPageState extends FiveLetterLogic {
+class _FourLetterPageState extends FourLetterLogic {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            centerTitle: true,
-            title: Center(child: MyTexts.titleText),
+            title: ProjectTitle(),
             elevation: 5,
             actions: [
               IconButton(
@@ -26,7 +25,7 @@ class _FiveLetterPageState extends FiveLetterLogic {
                   },
                   icon: const Icon(Icons.restart_alt_outlined))
             ],
-            toolbarHeight: 100),
+            toolbarHeight: 80),
         body:
             Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           SizedBox(
@@ -57,11 +56,6 @@ class _FiveLetterPageState extends FiveLetterLogic {
                           boxIndex: 3,
                           indicator: backgrounds,
                           gameIndex: 0),
-                      WordBox(
-                          word: wordsEntered[0],
-                          boxIndex: 4,
-                          indicator: backgrounds,
-                          gameIndex: 0)
                     ]
                   : []),
           Row(
@@ -88,11 +82,6 @@ class _FiveLetterPageState extends FiveLetterLogic {
                           boxIndex: 3,
                           indicator: backgrounds,
                           gameIndex: 1),
-                      WordBox(
-                          word: wordsEntered[1],
-                          boxIndex: 4,
-                          indicator: backgrounds,
-                          gameIndex: 1)
                     ]
                   : []),
           Row(
@@ -119,11 +108,6 @@ class _FiveLetterPageState extends FiveLetterLogic {
                           boxIndex: 3,
                           indicator: backgrounds,
                           gameIndex: 2),
-                      WordBox(
-                          word: wordsEntered[2],
-                          boxIndex: 4,
-                          indicator: backgrounds,
-                          gameIndex: 2)
                     ]
                   : []),
           Row(
@@ -150,11 +134,6 @@ class _FiveLetterPageState extends FiveLetterLogic {
                           boxIndex: 3,
                           indicator: backgrounds,
                           gameIndex: 3),
-                      WordBox(
-                          word: wordsEntered[3],
-                          boxIndex: 4,
-                          indicator: backgrounds,
-                          gameIndex: 3)
                     ]
                   : []),
           Row(
@@ -181,13 +160,8 @@ class _FiveLetterPageState extends FiveLetterLogic {
                           boxIndex: 3,
                           indicator: backgrounds,
                           gameIndex: 4),
-                      WordBox(
-                          word: wordsEntered[4],
-                          boxIndex: 4,
-                          indicator: backgrounds,
-                          gameIndex: 4)
                     ]
-                  : [])
+                  : []),
         ]),
         bottomNavigationBar: BottomAppBar(
             child: Container(

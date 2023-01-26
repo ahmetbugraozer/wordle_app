@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../ui/elements.dart';
-import '../ui/widgets.dart';
+import '../../ui/elements.dart';
+import '../../ui/widgets.dart';
 
 class WordleGameHomePage extends StatefulWidget {
   const WordleGameHomePage({super.key});
@@ -13,10 +13,7 @@ class _WordleGameHomePageState extends State<WordleGameHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: Center(child: MyTexts.titleText),
-            toolbarHeight: 100,
-            elevation: 5),
+        appBar: AppBar(title: ProjectTitle(), toolbarHeight: 80, elevation: 5),
         body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Expanded(flex: 1, child: Center(child: MyTexts.selectionText)),
           const Spacer(flex: 1),
