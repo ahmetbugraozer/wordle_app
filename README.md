@@ -1,5 +1,5 @@
 -EN-
-![Screenshot_1674868025](https://user-images.githubusercontent.com/108281186/215233061-8f446ed3-8a44-4093-b97d-d9c38e5910aa.png)
+![1](https://user-images.githubusercontent.com/108281186/215233506-021f5079-5332-4994-80c4-997820c33857.png)
 ![Screenshot_1674868021](https://user-images.githubusercontent.com/108281186/215233065-b2ebdefd-b119-435f-996a-5f4382bf173d.png)
 
 Wordle Mobile Game
