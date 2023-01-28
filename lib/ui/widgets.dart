@@ -20,11 +20,19 @@ class GameSelectionButton extends StatelessWidget {
   late String letterAmount;
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-        minWidth: 150,
-        height: 40,
-        color: MyColors.firstNeutralColor,
-        onPressed: () {
+    return ListTile(
+        title: Stack(children: [
+          Image.asset("assets/$letterAmount.jpg"),
+          Positioned(
+              bottom: 10,
+              left: 10,
+              child: Text("$letterAmount Letters",
+                  style: Theme.of(context).textTheme.headline1?.copyWith(
+                      fontWeight: FontWeight.w300,
+                      fontSize: 35,
+                      color: Colors.white)))
+        ]),
+        onTap: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (context) {
             if (letterAmount == "Four") {
               return const FourLetterPage();
@@ -34,8 +42,7 @@ class GameSelectionButton extends StatelessWidget {
               return const SixLetterPage();
             }
           }));
-        },
-        child: Text("$letterAmount Letters"));
+        });
   }
 }
 
@@ -66,8 +73,11 @@ class WordBox extends StatelessWidget {
 
   BoxDecoration wordBoxDecoration() {
     return BoxDecoration(
+        boxShadow: const [
+          BoxShadow(color: Colors.black, offset: Offset(1, 5), blurRadius: 10)
+        ],
         shape: BoxShape.rectangle,
-        borderRadius: const BorderRadius.all(Radius.circular(3)),
+        borderRadius: const BorderRadius.all(Radius.circular(2)),
         color: indicator[gameIndex].length >= boxIndex + 1
             ? (indicator[gameIndex][boxIndex] == "t"
                 ? (MyColors.lastResultTrueColor)

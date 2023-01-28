@@ -15,15 +15,26 @@ class _WordleGameHomePageState extends State<WordleGameHomePage> {
     return Scaffold(
         appBar: AppBar(
             title: const ProjectTitle(), toolbarHeight: 80, elevation: 5),
-        body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Expanded(flex: 10, child: Center(child: MyTexts.selectionText)),
-          const Spacer(flex: 2),
-          GameSelectionButton(letterAmount: "Four"),
-          const Spacer(flex: 1),
-          GameSelectionButton(letterAmount: "Five"),
-          const Spacer(flex: 1),
-          GameSelectionButton(letterAmount: "Six"),
-          const Spacer(flex: 18)
-        ]));
+        body: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Divider(),
+              Center(child: MyTexts.selectionText),
+              const Divider(),
+              GameSelectionButton(letterAmount: "Four"),
+              GameSelectionButton(letterAmount: "Five"),
+              GameSelectionButton(letterAmount: "Six")
+            ]),
+        bottomNavigationBar: BottomAppBar(
+            child: Container(
+                color: MyColors.backgroundColor,
+                height: 60,
+                child: Center(
+                    child: Text("AXEON",
+                        style: Theme.of(context).textTheme.headline1?.copyWith(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w300,
+                            letterSpacing: 5))))));
   }
 }
