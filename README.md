@@ -1,16 +1,23 @@
-# wordle_app
+-EN-
 
-A new Flutter project.
+Wordle Mobile Game
 
-## Getting Started
+It is a Wordle mobile game built using Flutter. It offers four, five, and six word playing options for users to enjoy, as well as a word recognition system and 5 word input attempts.
 
-This project is a starting point for a Flutter application.
+Features:
+Four, five, and six word playing options
+Word recognition system
+5 word input attempts to find the true word
+Unlimited playing
 
-A few resources to get you started if this is your first Flutter project:
+-TR-
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Wordle Mobil Oyunu
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Flutter kullanılarak oluşturulmuş bir mobil oyundur. Kullanıcıların keyifle oynayabileceği dört, beş ve altı kelime seçenekleri sunar, aynı zamanda kelime algılama sistemi ve 5 kelime giriş hakkı ile.
+
+Özellikler
+Dört, beş ve altı harfli kelimeler ile oynama seçenekleri
+Kelime algılama sistemi
+Doğru kelimeyi bilmek için 5 kelimelik giriş hakkı
+Sınırsız oynama hakkı
