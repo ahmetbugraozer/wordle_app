@@ -1,4 +1,6 @@
 -EN-
+![Screenshot_1674868025](https://user-images.githubusercontent.com/108281186/215233061-8f446ed3-8a44-4093-b97d-d9c38e5910aa.png)
+![Screenshot_1674868021](https://user-images.githubusercontent.com/108281186/215233065-b2ebdefd-b119-435f-996a-5f4382bf173d.png)
 
 Wordle Mobile Game
 
@@ -9,6 +11,8 @@ Four, five, and six word playing options
 Word recognition system
 5 word input attempts to find the true word
 Unlimited playing
+![Screenshot_1674867899](https://user-images.githubusercontent.com/108281186/215233081-720e06e5-33c0-4eb3-a465-07949ae7e0f6.png)
+![Screenshot_1674867916](https://user-images.githubusercontent.com/108281186/215233087-a5328dba-58c3-4814-923f-96b28a532c39.png)
 
 -TR-
 
@@ -21,3 +25,5 @@ Dört, beş ve altı harfli kelimeler ile oynama seçenekleri
 Kelime algılama sistemi
 Doğru kelimeyi bilmek için 5 kelimelik giriş hakkı
 Sınırsız oynama hakkı
+![Screenshot_1674867958](https://user-images.githubusercontent.com/108281186/215233106-7b8fd1bf-55ac-4bb0-932f-fe8625768933.png)
+![Screenshot_1674868018](https://user-images.githubusercontent.com/108281186/215233117-f91055c6-dba1-4bde-9b5c-86aa49e2448b.png)
