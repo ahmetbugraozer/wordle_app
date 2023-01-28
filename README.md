@@ -15,7 +15,7 @@ Word recognition system
 5 word input attempts to find the true word
 Unlimited playing
 
-![Screenshot_1674867899](https://user-images.githubusercontent.com/108281186/215233620-48799149-6cd5-43f7-8b4f-ba34a933a4aa.png)
+![1](https://user-images.githubusercontent.com/108281186/215233669-ce340fc2-9ea7-4e74-a5c0-562a653d00c7.png)
 ![Screenshot_1674867916](https://user-images.githubusercontent.com/108281186/215233623-56d6f3f3-d56a-4607-8f65-a6771aaea714.png)
 
 -TR-
