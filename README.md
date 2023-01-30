@@ -17,8 +17,9 @@ Features:
 
 
 
-![1](https://user-images.githubusercontent.com/108281186/215233669-ce340fc2-9ea7-4e74-a5c0-562a653d00c7.png)
-![Screenshot_1674867916](https://user-images.githubusercontent.com/108281186/215233623-56d6f3f3-d56a-4607-8f65-a6771aaea714.png)
+![3](https://user-images.githubusercontent.com/108281186/215587978-7d392293-727f-4dee-b34a-51ee177bdad9.png)
+![4](https://user-images.githubusercontent.com/108281186/215587988-a26e96c3-798b-48bf-97b0-644085567497.png)
+
 
 
 -TR-
@@ -35,5 +36,6 @@ Flutter kullanılarak oluşturulmuş bir mobil oyundur. Kullanıcıların keyifl
 
 
 
-![Screenshot_1674867958](https://user-images.githubusercontent.com/108281186/215233590-bfe033b9-2a21-453c-baad-42664b58e3d2.png)
-![Screenshot_1674868018](https://user-images.githubusercontent.com/108281186/215233595-8393a093-1548-4b1d-941b-91636664ed1b.png)
+![5](https://user-images.githubusercontent.com/108281186/215588016-ea0de29d-21bc-4d67-b475-66d41d49f62d.png)
+![6](https://user-images.githubusercontent.com/108281186/215588022-a6a694fa-37a7-4535-beea-fae526433ed0.png)
+
