@@ -190,33 +190,37 @@ class _FiveLetterPageState extends FiveLetterLogic {
         ]),
         bottomNavigationBar: BottomAppBar(
             child: Container(
-                height: 265,
+                height: 320,
                 decoration: MyDecorations.keyBoardDecoration,
                 child: !gameFinished
-                    ? Stack(children: [
-                        Container(
-                            color: MyColors.backgroundColor,
-                            height: 35,
-                            child: Center(
-                                child: Text(
-                                    "attempts remaining: ${4 - gameIndex}",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline1
-                                        ?.copyWith(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w500)))),
-                        Positioned(
-                            top: 38,
-                            child: SizedBox(
-                                height: 250,
-                                width: 392,
-                                child: GridView.count(
-                                    crossAxisCount: 7,
-                                    controller: ScrollController(
-                                        keepScrollOffset: false),
-                                    children: alphabet
-                                        .map((e) => RawMaterialButton(
+                    ? Column(children: [
+                        Expanded(
+                            flex: 10,
+                            child: Container(
+                                color: MyColors.backgroundColor,
+                                height: 35,
+                                child: Center(
+                                    child: Text(
+                                        "attempts remaining: ${4 - gameIndex}",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headline1
+                                            ?.copyWith(
+                                                fontSize: 20,
+                                                fontWeight:
+                                                    FontWeight.w500))))),
+                        const Spacer(flex: 1),
+                        Expanded(
+                            flex: 80,
+                            child: GridView.count(
+                                crossAxisCount: 7,
+                                mainAxisSpacing: 2,
+                                crossAxisSpacing: 2,
+                                controller:
+                                    ScrollController(keepScrollOffset: false),
+                                children: alphabet
+                                    .map((e) => (e != " ")
+                                        ? RawMaterialButton(
                                             onPressed: () {
                                               addLetter(e);
                                             },
@@ -224,24 +228,34 @@ class _FiveLetterPageState extends FiveLetterLogic {
                                                 ? LetterBox(
                                                     letter: e, isTrue: true)
                                                 : LetterBox(
-                                                    letter: e, isTrue: false)))
-                                        .toList()))),
-                        Positioned(
-                            bottom: 6,
-                            right: 60,
-                            child: GestureDetector(
-                                onTap: () {
-                                  deleteLetter();
-                                },
-                                child: OperatorButton(operator: "backspace"))),
-                        Positioned(
-                            bottom: 6,
-                            right: 4,
-                            child: GestureDetector(
-                                onTap: () {
-                                  enter();
-                                },
-                                child: OperatorButton(operator: "enter")))
+                                                    letter: e, isTrue: false))
+                                        : LetterBox(
+                                            letter: " ",
+                                            isTrue: true,
+                                            isTransparent: true))
+                                    .toList())),
+                        Expanded(
+                            flex: 20,
+                            child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                      child: GestureDetector(
+                                          onTap: () {
+                                            deleteLetter();
+                                          },
+                                          child: OperatorButton(
+                                              operator: "backspace"))),
+                                  Expanded(
+                                      child: GestureDetector(
+                                          onTap: () {
+                                            enter();
+                                          },
+                                          child: OperatorButton(
+                                              operator: "enter")))
+                                ])),
+                        const Spacer(flex: 2)
                       ])
                     : Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

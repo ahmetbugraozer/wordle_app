@@ -20,8 +20,8 @@ class GameSelectionButton extends StatelessWidget {
   late String letterAmount;
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-        title: Stack(children: [
+    return MaterialButton(
+        child: Stack(children: [
           Image.asset("assets/$letterAmount.jpg"),
           Positioned(
               bottom: 10,
@@ -32,7 +32,7 @@ class GameSelectionButton extends StatelessWidget {
                       fontSize: 35,
                       color: Colors.white)))
         ]),
-        onTap: () {
+        onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (context) {
             if (letterAmount == "Four") {
               return const FourLetterPage();
@@ -97,11 +97,9 @@ class OperatorButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 49,
-        width: 49,
         decoration: BoxDecoration(
             color: MyColors.firstNeutralColor,
-            boxShadow: const [BoxShadow(offset: Offset(1, 1), blurRadius: 5)]),
+            boxShadow: const [BoxShadow(offset: Offset(0, 0), blurRadius: 3)]),
         child: operator == "backspace"
             ? const Icon(Icons.backspace_outlined)
             : const Icon(Icons.turn_right));
@@ -111,19 +109,26 @@ class OperatorButton extends StatelessWidget {
 class LetterBox extends StatelessWidget {
   late String letter;
   late bool isTrue;
-  LetterBox({Key? key, required this.letter, required this.isTrue})
+  late bool isTransparent;
+  LetterBox(
+      {Key? key,
+      required this.letter,
+      required this.isTrue,
+      this.isTransparent = false})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(
-            color: isTrue
-                ? MyColors.firstNeutralColor
-                : MyColors.keyboardFalseColor,
-            boxShadow: const [BoxShadow(offset: Offset(1, 1), blurRadius: 5)]),
-        height: 50,
-        width: 50,
+            color: isTransparent
+                ? Colors.transparent
+                : (isTrue
+                    ? MyColors.firstNeutralColor
+                    : MyColors.keyboardFalseColor),
+            boxShadow: !isTransparent
+                ? [const BoxShadow(offset: Offset(0, 0), blurRadius: 3)]
+                : []),
         child: Center(child: Text(letter, style: MyTextStyle.letterTextStyle)));
   }
 }

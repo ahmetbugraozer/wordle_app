@@ -20,9 +20,11 @@ List<String> alphabet = [
   'T',
   'U',
   'V',
+  " ",
   'Q',
   'W',
   'X',
   'Y',
   'Z',
+  " ",
 ];

@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3), () async {
+    Future.delayed(const Duration(seconds: 2), () async {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
         return const WordleGameHomePage();
       }));
@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: MyColors.backgroundColor,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.only(left: 20, right: 20, top: 80),
         child: Center(child: Image.asset("assets/icon.png")),
       ),
       bottomNavigationBar: BottomAppBar(

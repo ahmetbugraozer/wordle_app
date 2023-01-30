@@ -10,6 +10,7 @@ class WordleGameHomePage extends StatefulWidget {
 }
 
 class _WordleGameHomePageState extends State<WordleGameHomePage> {
+  List<String> selections = ["Four", "Five", "Six"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,12 +20,17 @@ class _WordleGameHomePageState extends State<WordleGameHomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Divider(),
-              Center(child: MyTexts.selectionText),
-              const Divider(),
-              GameSelectionButton(letterAmount: "Four"),
-              GameSelectionButton(letterAmount: "Five"),
-              GameSelectionButton(letterAmount: "Six")
+              Expanded(flex: 1, child: Center(child: MyTexts.selectionText)),
+              Expanded(
+                  flex: 15,
+                  child: SizedBox(
+                      child: GridView.count(
+                          crossAxisCount: 1,
+                          childAspectRatio: 2.1,
+                          controller: ScrollController(keepScrollOffset: false),
+                          children: selections
+                              .map((e) => GameSelectionButton(letterAmount: e))
+                              .toList())))
             ]),
         bottomNavigationBar: BottomAppBar(
             child: Container(
