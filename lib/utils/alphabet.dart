@@ -15,14 +15,14 @@ List<String> alphabet = [
   'N',
   'O',
   'P',
-  'Q',
   'R',
   'S',
   'T',
   'U',
   'V',
+  'Q',
   'W',
   'X',
   'Y',
-  'Z'
+  'Z',
 ];

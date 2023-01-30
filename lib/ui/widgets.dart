@@ -97,9 +97,11 @@ class OperatorButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 40,
-        width: 40,
-        color: MyColors.firstNeutralColor,
+        height: 49,
+        width: 49,
+        decoration: BoxDecoration(
+            color: MyColors.firstNeutralColor,
+            boxShadow: const [BoxShadow(offset: Offset(1, 1), blurRadius: 5)]),
         child: operator == "backspace"
             ? const Icon(Icons.backspace_outlined)
             : const Icon(Icons.turn_right));
@@ -115,11 +117,13 @@ class LetterBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        decoration: BoxDecoration(
+            color: isTrue
+                ? MyColors.firstNeutralColor
+                : MyColors.keyboardFalseColor,
+            boxShadow: const [BoxShadow(offset: Offset(1, 1), blurRadius: 5)]),
         height: 50,
-        width: 30,
-        color:
-            isTrue ? MyColors.firstNeutralColor : MyColors.keyboardFalseColor,
-        margin: const EdgeInsets.symmetric(horizontal: 10),
+        width: 50,
         child: Center(child: Text(letter, style: MyTextStyle.letterTextStyle)));
   }
 }

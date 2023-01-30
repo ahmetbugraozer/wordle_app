@@ -190,36 +190,53 @@ class _FiveLetterPageState extends FiveLetterLogic {
         ]),
         bottomNavigationBar: BottomAppBar(
             child: Container(
-                height: 230,
+                height: 265,
                 decoration: MyDecorations.keyBoardDecoration,
                 child: !gameFinished
                     ? Stack(children: [
-                        GridView.count(
-                            crossAxisCount: 7,
-                            mainAxisSpacing: 5,
-                            crossAxisSpacing: 5,
-                            padding: const EdgeInsets.all(5),
-                            children: alphabet
-                                .map((e) => !wrongLetters.contains(e)
-                                    ? RawMaterialButton(
-                                        onPressed: () {
-                                          addLetter(e);
-                                        },
-                                        child:
-                                            LetterBox(letter: e, isTrue: true))
-                                    : LetterBox(letter: e, isTrue: false))
-                                .toList()),
+                        Container(
+                            color: MyColors.backgroundColor,
+                            height: 35,
+                            child: Center(
+                                child: Text(
+                                    "attempts remaining: ${4 - gameIndex}",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headline1
+                                        ?.copyWith(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w500)))),
                         Positioned(
-                            bottom: 10,
-                            right: 65,
+                            top: 38,
+                            child: SizedBox(
+                                height: 250,
+                                width: 392,
+                                child: GridView.count(
+                                    crossAxisCount: 7,
+                                    controller: ScrollController(
+                                        keepScrollOffset: false),
+                                    children: alphabet
+                                        .map((e) => RawMaterialButton(
+                                            onPressed: () {
+                                              addLetter(e);
+                                            },
+                                            child: !wrongLetters.contains(e)
+                                                ? LetterBox(
+                                                    letter: e, isTrue: true)
+                                                : LetterBox(
+                                                    letter: e, isTrue: false)))
+                                        .toList()))),
+                        Positioned(
+                            bottom: 6,
+                            right: 60,
                             child: GestureDetector(
                                 onTap: () {
                                   deleteLetter();
                                 },
                                 child: OperatorButton(operator: "backspace"))),
                         Positioned(
-                            bottom: 10,
-                            right: 10,
+                            bottom: 6,
+                            right: 4,
                             child: GestureDetector(
                                 onTap: () {
                                   enter();
