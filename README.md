@@ -1,6 +1,10 @@
 
-![1](https://user-images.githubusercontent.com/108281186/215626121-24989ae4-73d0-47ca-a8ef-339066783150.png)
-![2](https://user-images.githubusercontent.com/108281186/215626126-f3795c27-0f1d-4d54-9082-3fa506f79ee2.png)
+# Wordle Flutter App
+
+
+
+![1](https://user-images.githubusercontent.com/108281186/215627392-91c89c8e-b076-464b-ab9b-58ea0fe34c6c.png)
+![2](https://user-images.githubusercontent.com/108281186/215627395-0e5297b4-3aee-4e0a-a8c9-7c35bf92b02b.png)
 
 
 
@@ -18,8 +22,8 @@ Features:
 
 
 
-![3](https://user-images.githubusercontent.com/108281186/215626150-58673b52-3144-48aa-822e-5287168f45e9.png)
-![4](https://user-images.githubusercontent.com/108281186/215626153-005d510c-acc7-4a0a-8733-6373964e9e5b.png)
+![3](https://user-images.githubusercontent.com/108281186/215627425-f4cb5c6e-9947-41ba-92e0-468a1bca2dfc.png)
+![4](https://user-images.githubusercontent.com/108281186/215627430-b94a1b1f-3b68-4fa3-8a8e-273a75465d4a.png)
 
 
 
@@ -37,5 +41,17 @@ Flutter kullanılarak oluşturulmuş bir mobil oyundur. Kullanıcıların keyifl
 
 
 
-![5](https://user-images.githubusercontent.com/108281186/215626172-0db03c2b-9885-4020-88cb-33c4146023f7.png)
-![6](https://user-images.githubusercontent.com/108281186/215626180-461e52a4-7a3f-4ec6-b72d-656ce1971b25.png)
+![5](https://user-images.githubusercontent.com/108281186/215627509-9b9c9a13-dd07-4575-86c9-8719cc165bc9.png)
+![6](https://user-images.githubusercontent.com/108281186/215627513-5ca0c8b6-d473-473d-bddb-cc9376c5e93d.png)
+
+
+
+
+<style>
+.wordle-header {
+  font-size: 36px;
+}
+</style>
+
+<h1 class="wordle-header">Wordle Flutter App</h1>
+
