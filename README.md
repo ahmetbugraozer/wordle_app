@@ -1,6 +1,7 @@
 
-![Screenshot_1674868025](https://user-images.githubusercontent.com/108281186/215233604-f977b2ce-0314-41c1-a1bd-6ae65481b529.png)
-![Screenshot_1674868021](https://user-images.githubusercontent.com/108281186/215233608-86b08199-c803-4130-83c9-f3d830f02b3e.png)
+![1](https://user-images.githubusercontent.com/108281186/215626121-24989ae4-73d0-47ca-a8ef-339066783150.png)
+![2](https://user-images.githubusercontent.com/108281186/215626126-f3795c27-0f1d-4d54-9082-3fa506f79ee2.png)
+
 
 
 -EN-
@@ -17,8 +18,8 @@ Features:
 
 
 
-![3](https://user-images.githubusercontent.com/108281186/215587978-7d392293-727f-4dee-b34a-51ee177bdad9.png)
-![4](https://user-images.githubusercontent.com/108281186/215587988-a26e96c3-798b-48bf-97b0-644085567497.png)
+![3](https://user-images.githubusercontent.com/108281186/215626150-58673b52-3144-48aa-822e-5287168f45e9.png)
+![4](https://user-images.githubusercontent.com/108281186/215626153-005d510c-acc7-4a0a-8733-6373964e9e5b.png)
 
 
 
@@ -36,6 +37,5 @@ Flutter kullanılarak oluşturulmuş bir mobil oyundur. Kullanıcıların keyifl
 
 
 
-![5](https://user-images.githubusercontent.com/108281186/215588016-ea0de29d-21bc-4d67-b475-66d41d49f62d.png)
-![6](https://user-images.githubusercontent.com/108281186/215588022-a6a694fa-37a7-4535-beea-fae526433ed0.png)
-
+![5](https://user-images.githubusercontent.com/108281186/215626172-0db03c2b-9885-4020-88cb-33c4146023f7.png)
+![6](https://user-images.githubusercontent.com/108281186/215626180-461e52a4-7a3f-4ec6-b72d-656ce1971b25.png)
