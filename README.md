@@ -34,12 +34,12 @@ Flutter kullanılarak oluşturulmuş bir mobil oyundur. Kullanıcıların keyifl
 # Screenshots(Ekran Görüntüleri)
 
 <p float="left">
-<img src="https://user-images.githubusercontent.com/108281186/215652881-62062509-0a4c-4f9b-b078-656f95b5acea.png" width="150">
-<img src="https://user-images.githubusercontent.com/108281186/215627395-0e5297b4-3aee-4e0a-a8c9-7c35bf92b02b.png" width="150">
-<img src="https://user-images.githubusercontent.com/108281186/215627425-f4cb5c6e-9947-41ba-92e0-468a1bca2dfc.png" width="150">
-<img src="https://user-images.githubusercontent.com/108281186/215627430-b94a1b1f-3b68-4fa3-8a8e-273a75465d4a.png" width="150">
-<img src="https://user-images.githubusercontent.com/108281186/215627509-9b9c9a13-dd07-4575-86c9-8719cc165bc9.png" width="150">
-<img src="https://user-images.githubusercontent.com/108281186/215627513-5ca0c8b6-d473-473d-bddb-cc9376c5e93d.png" width="150">
+<img src="https://user-images.githubusercontent.com/108281186/215652881-62062509-0a4c-4f9b-b078-656f95b5acea.png" width="300">
+<img src="https://user-images.githubusercontent.com/108281186/215627395-0e5297b4-3aee-4e0a-a8c9-7c35bf92b02b.png" width="300">
+<img src="https://user-images.githubusercontent.com/108281186/215627425-f4cb5c6e-9947-41ba-92e0-468a1bca2dfc.png" width="300">
+<img src="https://user-images.githubusercontent.com/108281186/215627430-b94a1b1f-3b68-4fa3-8a8e-273a75465d4a.png" width="300">
+<img src="https://user-images.githubusercontent.com/108281186/215627509-9b9c9a13-dd07-4575-86c9-8719cc165bc9.png" width="300">
+<img src="https://user-images.githubusercontent.com/108281186/215627513-5ca0c8b6-d473-473d-bddb-cc9376c5e93d.png" width="300">
 </p>
 
 
