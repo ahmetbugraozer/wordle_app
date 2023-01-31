@@ -249,15 +249,28 @@ class _SixLetterPageState extends SixLetterLogic {
                                             onPressed: () {
                                               addLetter(e);
                                             },
-                                            child: !wrongLetters.contains(e)
+                                            child: wrongLetters.contains(e)
                                                 ? LetterBox(
-                                                    letter: e, isTrue: true)
-                                                : LetterBox(
-                                                    letter: e, isTrue: false))
+                                                    letter: e,
+                                                    isProcessed: true,
+                                                  )
+                                                : (neutralLetters.contains(e) &&
+                                                        !trueLetters.contains(e)
+                                                    ? LetterBox(
+                                                        letter: e,
+                                                        isProcessed: true,
+                                                        isNeutral: true)
+                                                    : ((trueLetters.contains(e))
+                                                        ? LetterBox(
+                                                            letter: e,
+                                                            isProcessed: true,
+                                                            isTrue: true)
+                                                        : LetterBox(
+                                                            letter: e))))
                                         : LetterBox(
                                             letter: " ",
-                                            isTrue: true,
-                                            isTransparent: true))
+                                            isTransparent: true,
+                                          ))
                                     .toList())),
                         Expanded(
                             flex: 20,

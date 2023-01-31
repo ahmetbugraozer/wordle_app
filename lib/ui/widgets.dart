@@ -99,7 +99,7 @@ class OperatorButton extends StatelessWidget {
     return Container(
         decoration: BoxDecoration(
             color: MyColors.firstNeutralColor,
-            boxShadow: const [BoxShadow(offset: Offset(0, 0), blurRadius: 3)]),
+            boxShadow: const [BoxShadow(offset: Offset(0, 0), blurRadius: 5)]),
         child: operator == "backspace"
             ? const Icon(Icons.backspace_outlined)
             : const Icon(Icons.turn_right));
@@ -108,12 +108,16 @@ class OperatorButton extends StatelessWidget {
 
 class LetterBox extends StatelessWidget {
   late String letter;
+  late bool isProcessed;
   late bool isTrue;
+  late bool isNeutral;
   late bool isTransparent;
   LetterBox(
       {Key? key,
       required this.letter,
-      required this.isTrue,
+      this.isProcessed = false,
+      this.isTrue = false,
+      this.isNeutral = false,
       this.isTransparent = false})
       : super(key: key);
 
@@ -123,11 +127,15 @@ class LetterBox extends StatelessWidget {
         decoration: BoxDecoration(
             color: isTransparent
                 ? Colors.transparent
-                : (isTrue
-                    ? MyColors.firstNeutralColor
-                    : MyColors.keyboardFalseColor),
+                : (isProcessed
+                    ? (isTrue
+                        ? MyColors.lastResultTrueColor
+                        : (isNeutral
+                            ? MyColors.lastResultSemiTrueColor
+                            : MyColors.keyboardFalseColor))
+                    : MyColors.firstNeutralColor),
             boxShadow: !isTransparent
-                ? [const BoxShadow(offset: Offset(0, 0), blurRadius: 3)]
+                ? [const BoxShadow(offset: Offset(0, 0), blurRadius: 5)]
                 : []),
         child: Center(child: Text(letter, style: MyTextStyle.letterTextStyle)));
   }
