@@ -1,9 +1,7 @@
 
 # Wordle Flutter App
 
-
 ![icon](https://user-images.githubusercontent.com/108281186/215653355-ab03f43f-da10-43d5-b8d2-f69706e240f1.png)
-
 
 ## -EN-
 
