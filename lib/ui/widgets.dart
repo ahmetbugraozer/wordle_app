@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wordle_app/pages/gamepages/4/page_four_letter.dart';
-import 'package:wordle_app/pages/gamepages/6/page_six_letter.dart';
-
+import 'package:wordle_app/pages/gamepages/wordle_page.dart';
 import 'package:wordle_app/ui/elements.dart';
-import '../pages/gamepages/5/page_five_letter.dart';
 
 class ProjectTitle extends StatelessWidget {
   const ProjectTitle({Key? key}) : super(key: key);
@@ -16,33 +13,55 @@ class ProjectTitle extends StatelessWidget {
 }
 
 class GameSelectionButton extends StatelessWidget {
-  GameSelectionButton({Key? key, required this.letterAmount}) : super(key: key);
-  late String letterAmount;
+  final String letterAmount;
+  final List<String> wordList;
+
+  const GameSelectionButton({
+    Key? key,
+    required this.letterAmount,
+    required this.wordList,
+  }) : super(key: key);
+
+  int _getWordLength() {
+    switch (letterAmount) {
+      case "Four":
+        return 4;
+      case "Five":
+        return 5;
+      case "Six":
+        return 6;
+      default:
+        return 4;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-        child: Stack(children: [
+      child: Stack(
+        children: [
           Image.asset("assets/$letterAmount.jpg"),
           Positioned(
-              bottom: 10,
-              left: 10,
-              child: Text("$letterAmount Letters",
-                  style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                      fontWeight: FontWeight.w300,
-                      fontSize: 35,
-                      color: Colors.white)))
-        ]),
-        onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-            if (letterAmount == "Four") {
-              return const FourLetterPage();
-            } else if (letterAmount == "Five") {
-              return const FiveLetterPage();
-            } else {
-              return const SixLetterPage();
-            }
-          }));
-        });
+            bottom: 10,
+            left: 10,
+            child: Text(
+              "$letterAmount Letters",
+              style: MyTextStyle.titleTextStyle,
+            ),
+          ),
+        ],
+      ),
+      onPressed: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => WordlePage(
+              wordLength: _getWordLength(),
+              wordList: wordList,
+            ),
+          ),
+        );
+      },
+    );
   }
 }
 
@@ -55,10 +74,10 @@ class WordBox extends StatelessWidget {
       required this.gameIndex})
       : super(key: key);
 
-  String word;
-  List<String> indicator;
-  int gameIndex;
-  int boxIndex;
+  late final String word;
+  late final List<String> indicator;
+  late final int gameIndex;
+  late final int boxIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +93,7 @@ class WordBox extends StatelessWidget {
   BoxDecoration wordBoxDecoration() {
     return BoxDecoration(
         boxShadow: const [
-          BoxShadow(color: Colors.black, offset: Offset(1, 5), blurRadius: 10)
+          BoxShadow(color: Colors.black, offset: Offset(0, 1), blurRadius: 10)
         ],
         shape: BoxShape.rectangle,
         borderRadius: const BorderRadius.all(Radius.circular(2)),
@@ -91,7 +110,7 @@ class WordBox extends StatelessWidget {
 }
 
 class OperatorButton extends StatelessWidget {
-  late String operator;
+  late final String operator;
   OperatorButton({Key? key, required this.operator}) : super(key: key);
 
   @override
@@ -99,7 +118,7 @@ class OperatorButton extends StatelessWidget {
     return Container(
         decoration: BoxDecoration(
             color: MyColors.firstNeutralColor,
-            boxShadow: const [BoxShadow(offset: Offset(0, 0), blurRadius: 5)]),
+            boxShadow: const [BoxShadow(offset: Offset(0, 0), blurRadius: 1)]),
         child: operator == "backspace"
             ? const Icon(Icons.backspace_outlined)
             : const Icon(Icons.turn_right));
@@ -107,11 +126,11 @@ class OperatorButton extends StatelessWidget {
 }
 
 class LetterBox extends StatelessWidget {
-  late String letter;
-  late bool isProcessed;
-  late bool isTrue;
-  late bool isNeutral;
-  late bool isTransparent;
+  late final String letter;
+  late final bool isProcessed;
+  late final bool isTrue;
+  late final bool isNeutral;
+  late final bool isTransparent;
   LetterBox(
       {Key? key,
       required this.letter,
@@ -135,7 +154,7 @@ class LetterBox extends StatelessWidget {
                             : MyColors.keyboardFalseColor))
                     : MyColors.firstNeutralColor),
             boxShadow: !isTransparent
-                ? [const BoxShadow(offset: Offset(0, 0), blurRadius: 5)]
+                ? [const BoxShadow(offset: Offset(0, 0), blurRadius: 1)]
                 : []),
         child: Center(child: Text(letter, style: MyTextStyle.letterTextStyle)));
   }

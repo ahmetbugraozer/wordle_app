@@ -1,4 +1,4 @@
-List<String> words = [
+List<String> fourLetterWords = [
   "able",
   "acid",
   "aged",

@@ -1,4 +1,4 @@
-List<String> words = [
+List<String> sixLetterWords = [
   "abroad",
   "accept",
   "access",
