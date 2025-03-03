@@ -34,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 60,
               child: Center(
                   child: Text("AXEON",
-                      style: Theme.of(context).textTheme.headline1?.copyWith(
+                      style: Theme.of(context).textTheme.displayLarge?.copyWith(
                           fontSize: 17,
                           fontWeight: FontWeight.w300,
                           letterSpacing: 5))))),

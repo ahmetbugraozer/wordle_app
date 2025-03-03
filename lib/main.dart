@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wordle_app/pages/splashpage/splash.dart';
-import 'pages/homepage/home.dart';
 import 'ui/elements.dart';
 
 void main() {

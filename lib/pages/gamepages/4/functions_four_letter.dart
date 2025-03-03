@@ -19,7 +19,7 @@ abstract class FourLetterLogic extends State<FourLetterPage> {
   void initState() {
     super.initState();
     actualWord = words[Random().nextInt(words.length)].toUpperCase();
-    print(actualWord);
+    debugPrint(actualWord);
     gameIndex = 0;
     trueLetters = "";
     neutralLetters = "";
@@ -115,7 +115,7 @@ abstract class FourLetterLogic extends State<FourLetterPage> {
   void restartGame() {
     setState(() {
       actualWord = words[Random().nextInt(words.length)].toUpperCase();
-      print(actualWord);
+      debugPrint(actualWord);
       gameIndex = 0;
       trueLetters = "";
       neutralLetters = "";

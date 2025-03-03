@@ -27,7 +27,7 @@ class GameSelectionButton extends StatelessWidget {
               bottom: 10,
               left: 10,
               child: Text("$letterAmount Letters",
-                  style: Theme.of(context).textTheme.headline1?.copyWith(
+                  style: Theme.of(context).textTheme.displayLarge?.copyWith(
                       fontWeight: FontWeight.w300,
                       fontSize: 35,
                       color: Colors.white)))
