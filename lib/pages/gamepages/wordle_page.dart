@@ -85,7 +85,9 @@ class _WordlePageState extends State<WordlePage> {
           ],
         ),
         body: const Center(
-          child: CircularProgressIndicator(),
+          child: CircularProgressIndicator(
+            color: Colors.white,
+          ),
         ),
       );
     }
