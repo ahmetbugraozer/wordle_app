@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wordle_app/utils/word_service.dart';
+import 'package:wordle_app/utils/word_validator_service.dart';
 import '../../ui/widgets.dart';
 import '../../utils/alphabet.dart';
 import "game_logic.dart";
@@ -37,6 +38,9 @@ class _WordlePageState extends State<WordlePage> {
         errorMessage = '';
       });
 
+      // Sözlüğü yükle
+      await WordValidatorService.initialize();
+
       // API'den kelime al
       final word = await WordService.fetchWords(widget.wordLength);
 
@@ -44,7 +48,7 @@ class _WordlePageState extends State<WordlePage> {
         setState(() {
           gameLogic = GameLogic(
             wordLength: widget.wordLength,
-            wordList: word, // API'den gelen tek kelimeyi içeren liste
+            wordList: word,
           );
           gameLogic.initializeGame();
           isLoading = false;

@@ -1,9 +1,10 @@
 // game_logic.dart
 import 'package:flutter/material.dart';
+import 'package:wordle_app/utils/word_validator_service.dart';
 
 class GameLogic {
   final int wordLength;
-  final List<String> wordList; // Artık sadece hedef kelimeyi içerecek
+  final List<String> wordList;
   static const int maxAttempts = 5;
 
   late String actualWord;
@@ -23,7 +24,7 @@ class GameLogic {
   });
 
   void initializeGame() {
-    actualWord = wordList[0]; // API'den gelen tek kelimeyi al
+    actualWord = wordList[0];
     debugPrint('Debug - Actual Word: $actualWord');
     gameIndex = 0;
     trueLetters = '';
@@ -88,6 +89,12 @@ class GameLogic {
 
   void enter() {
     if (gameFinished || wordsEntered[gameIndex].length != wordLength) return;
+
+    // Kelime kontrolü
+    if (!WordValidatorService.isValidWord(wordsEntered[gameIndex])) {
+      continueStatus = false;
+      return;
+    }
 
     evaluateAndChangeBackgrounds();
     continueStatus = true;
