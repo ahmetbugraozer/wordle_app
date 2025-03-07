@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:wordle_app/utils/word_service.dart';
 import '../../ui/widgets.dart';
 import '../../utils/alphabet.dart';
 import "game_logic.dart";
@@ -8,12 +9,10 @@ import '../../ui/elements.dart';
 // wordle_page.dart
 class WordlePage extends StatefulWidget {
   final int wordLength;
-  final List<String> wordList;
 
   const WordlePage({
     super.key,
     required this.wordLength,
-    required this.wordList,
   });
 
   @override
@@ -22,29 +21,134 @@ class WordlePage extends StatefulWidget {
 
 class _WordlePageState extends State<WordlePage> {
   late GameLogic gameLogic;
+  bool isLoading = true;
+  String errorMessage = '';
 
   @override
   void initState() {
     super.initState();
-    gameLogic = GameLogic(
-      wordLength: widget.wordLength,
-      wordList: widget.wordList,
-    );
-    gameLogic.initializeGame();
+    _initializeGame();
+  }
+
+  Future<void> _initializeGame() async {
+    try {
+      setState(() {
+        isLoading = true;
+        errorMessage = '';
+      });
+
+      // API'den kelime al
+      final word = await WordService.fetchWords(widget.wordLength);
+
+      if (mounted) {
+        setState(() {
+          gameLogic = GameLogic(
+            wordLength: widget.wordLength,
+            wordList: word, // API'den gelen tek kelimeyi içeren liste
+          );
+          gameLogic.initializeGame();
+          isLoading = false;
+        });
+      }
+    } catch (e) {
+      debugPrint('Initialize Game Error: $e');
+      if (mounted) {
+        setState(() {
+          isLoading = false;
+          errorMessage = 'Failed to load word. Please try again.';
+        });
+      }
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    if (isLoading) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const ProjectTitle(),
+          toolbarHeight: 80,
+          actions: [
+            IconButton(
+              onPressed: () async {
+                setState(() {
+                  isLoading = true;
+                });
+                await _initializeGame();
+              },
+              icon: const Icon(Icons.loop_outlined),
+            )
+          ],
+        ),
+        body: const Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+
+    if (errorMessage.isNotEmpty) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const ProjectTitle(),
+          toolbarHeight: 80,
+          actions: [
+            IconButton(
+              onPressed: () async {
+                setState(() {
+                  isLoading = true;
+                });
+                await _initializeGame();
+              },
+              icon: const Icon(Icons.loop_outlined),
+            )
+          ],
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                errorMessage,
+                style: GoogleFonts.poppins(
+                  color: Colors.red,
+                  fontSize: 16,
+                ),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    isLoading = true;
+                    errorMessage = '';
+                  });
+                  _initializeGame();
+                },
+                child: Text(
+                  'Retry',
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      );
+    }
+
+    // Normal oyun ekranı
     return Scaffold(
       appBar: AppBar(
         title: const ProjectTitle(),
         toolbarHeight: 80,
         actions: [
           IconButton(
-            onPressed: () {
+            onPressed: () async {
               setState(() {
-                gameLogic.restartGame();
+                isLoading = true;
               });
+              await _initializeGame();
             },
             icon: const Icon(Icons.loop_outlined),
           )
@@ -115,7 +219,7 @@ class _WordlePageState extends State<WordlePage> {
             controller: ScrollController(keepScrollOffset: false),
             children: alphabet.map((e) {
               if (e == " ") {
-                return LetterBox(letter: " ", isTransparent: true);
+                return const LetterBox(letter: " ", isTransparent: true);
               }
               return RawMaterialButton(
                 onPressed: () {
@@ -141,7 +245,7 @@ class _WordlePageState extends State<WordlePage> {
                       gameLogic.deleteLetter();
                     });
                   },
-                  child: OperatorButton(operator: "backspace"),
+                  child: const OperatorButton(operator: "backspace"),
                 ),
               ),
               Expanded(
@@ -151,7 +255,7 @@ class _WordlePageState extends State<WordlePage> {
                       gameLogic.enter();
                     });
                   },
-                  child: OperatorButton(operator: "enter"),
+                  child: const OperatorButton(operator: "enter"),
                 ),
               ),
             ],
@@ -203,10 +307,11 @@ class _WordlePageState extends State<WordlePage> {
               ),
         MaterialButton(
           color: MyColors.firstNeutralColor,
-          onPressed: () {
+          onPressed: () async {
             setState(() {
-              gameLogic.restartGame();
+              isLoading = true;
             });
+            await _initializeGame();
           },
           child: MyTexts.restartText,
         ),

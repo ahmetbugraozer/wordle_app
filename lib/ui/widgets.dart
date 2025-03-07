@@ -14,12 +14,10 @@ class ProjectTitle extends StatelessWidget {
 
 class GameSelectionButton extends StatelessWidget {
   final String letterAmount;
-  final List<String> wordList;
 
   const GameSelectionButton({
     Key? key,
     required this.letterAmount,
-    required this.wordList,
   }) : super(key: key);
 
   int _getWordLength() {
@@ -56,7 +54,6 @@ class GameSelectionButton extends StatelessWidget {
           MaterialPageRoute(
             builder: (context) => WordlePage(
               wordLength: _getWordLength(),
-              wordList: wordList,
             ),
           ),
         );
@@ -66,7 +63,7 @@ class GameSelectionButton extends StatelessWidget {
 }
 
 class WordBox extends StatelessWidget {
-  WordBox(
+  const WordBox(
       {Key? key,
       required this.word,
       required this.boxIndex,
@@ -74,10 +71,10 @@ class WordBox extends StatelessWidget {
       required this.gameIndex})
       : super(key: key);
 
-  late final String word;
-  late final List<String> indicator;
-  late final int gameIndex;
-  late final int boxIndex;
+  final String word;
+  final List<String> indicator;
+  final int gameIndex;
+  final int boxIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -110,8 +107,8 @@ class WordBox extends StatelessWidget {
 }
 
 class OperatorButton extends StatelessWidget {
-  late final String operator;
-  OperatorButton({Key? key, required this.operator}) : super(key: key);
+  final String operator;
+  const OperatorButton({Key? key, required this.operator}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -126,12 +123,12 @@ class OperatorButton extends StatelessWidget {
 }
 
 class LetterBox extends StatelessWidget {
-  late final String letter;
-  late final bool isProcessed;
-  late final bool isTrue;
-  late final bool isNeutral;
-  late final bool isTransparent;
-  LetterBox(
+  final String letter;
+  final bool isProcessed;
+  final bool isTrue;
+  final bool isNeutral;
+  final bool isTransparent;
+  const LetterBox(
       {Key? key,
       required this.letter,
       this.isProcessed = false,

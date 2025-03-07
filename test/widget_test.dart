@@ -7,7 +7,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:wordle_app/main.dart';
 
 void main() {
@@ -35,6 +34,6 @@ void main() {
 
     List<String> originalList = ["1", "2", "3", "1", "2", "3", "4", "5"];
     List<String> newList = removeDuplicates(originalList);
-    print(newList); // Output: [1, 2, 3, 4, 5]
+    debugPrint(newList as String?); // Output: [1, 2, 3, 4, 5]
   });
 }

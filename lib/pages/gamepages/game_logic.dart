@@ -1,10 +1,9 @@
 // game_logic.dart
-import 'dart:math';
 import 'package:flutter/material.dart';
 
 class GameLogic {
   final int wordLength;
-  final List<String> wordList;
+  final List<String> wordList; // Artık sadece hedef kelimeyi içerecek
   static const int maxAttempts = 5;
 
   late String actualWord;
@@ -24,7 +23,7 @@ class GameLogic {
   });
 
   void initializeGame() {
-    actualWord = _getRandomWord();
+    actualWord = wordList[0]; // API'den gelen tek kelimeyi al
     debugPrint('Debug - Actual Word: $actualWord');
     gameIndex = 0;
     trueLetters = '';
@@ -36,9 +35,6 @@ class GameLogic {
     gameResult = false;
     continueStatus = true;
   }
-
-  String _getRandomWord() =>
-      wordList[Random().nextInt(wordList.length)].toUpperCase();
 
   void addLetter(String letter) {
     if (gameFinished) return;
@@ -93,25 +89,17 @@ class GameLogic {
   void enter() {
     if (gameFinished || wordsEntered[gameIndex].length != wordLength) return;
 
-    String enteredWord = wordsEntered[gameIndex].toLowerCase();
-    String capitalizedWord =
-        enteredWord[0].toUpperCase() + enteredWord.substring(1);
+    evaluateAndChangeBackgrounds();
+    continueStatus = true;
 
-    if (wordList.contains(enteredWord) || wordList.contains(capitalizedWord)) {
-      evaluateAndChangeBackgrounds();
-      continueStatus = true;
-
-      if (backgrounds[gameIndex] == 't' * wordLength) {
-        gameFinished = true;
-        gameResult = true;
-      } else if (gameIndex == maxAttempts - 1) {
-        gameFinished = true;
-        gameResult = false;
-      } else {
-        gameIndex++;
-      }
+    if (backgrounds[gameIndex] == 't' * wordLength) {
+      gameFinished = true;
+      gameResult = true;
+    } else if (gameIndex == maxAttempts - 1) {
+      gameFinished = true;
+      gameResult = false;
     } else {
-      continueStatus = false;
+      gameIndex++;
     }
   }
 

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wordle_app/utils/words/words_4.dart';
-import 'package:wordle_app/utils/words/words_5.dart';
-import 'package:wordle_app/utils/words/words_6.dart';
 import '../ui/elements.dart';
 import '../ui/widgets.dart';
 
+// home_page.dart
 class WordleGameHomePage extends StatefulWidget {
   const WordleGameHomePage({super.key});
 
@@ -13,11 +11,7 @@ class WordleGameHomePage extends StatefulWidget {
 }
 
 class _WordleGameHomePageState extends State<WordleGameHomePage> {
-  final Map<String, List<String>> wordLists = {
-    "Four": fourLetterWords,
-    "Five": fiveLetterWords,
-    "Six": sixLetterWords,
-  };
+  final List<String> selections = ["Four", "Five", "Six"];
 
   @override
   Widget build(BuildContext context) {
@@ -40,10 +34,9 @@ class _WordleGameHomePageState extends State<WordleGameHomePage> {
               crossAxisCount: 1,
               childAspectRatio: 2,
               controller: ScrollController(keepScrollOffset: false),
-              children: wordLists.keys.map((key) {
+              children: selections.map((key) {
                 return GameSelectionButton(
                   letterAmount: key,
-                  wordList: wordLists[key]!,
                 );
               }).toList(),
             ),

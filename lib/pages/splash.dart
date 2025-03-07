@@ -14,9 +14,14 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () async {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return const WordleGameHomePage();
-      }));
+      if (mounted) {
+        setState(() {
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) {
+            return const WordleGameHomePage();
+          }));
+        });
+      }
     });
   }
 
