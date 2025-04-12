@@ -1,6 +1,6 @@
 // game_logic.dart
 import 'package:flutter/material.dart';
-import 'package:wordle_app/utils/word_validator_service.dart';
+import 'package:wordle_app/utils/word_services.dart';
 
 class GameLogic {
   final int wordLength;

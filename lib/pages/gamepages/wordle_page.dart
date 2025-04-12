@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:wordle_app/utils/word_service.dart';
-import 'package:wordle_app/utils/word_validator_service.dart';
+import 'package:wordle_app/utils/word_services.dart';
 import '../../ui/widgets.dart';
 import '../../utils/alphabet.dart';
 import "game_logic.dart";

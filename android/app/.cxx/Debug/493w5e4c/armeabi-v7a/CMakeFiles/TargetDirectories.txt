@@ -1,0 +1,2 @@
+C:/Users/its4t/Desktop/Ahmet pc/coding/flutter_learn_full/wordle_app/android/app/.cxx/Debug/493w5e4c/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/its4t/Desktop/Ahmet pc/coding/flutter_learn_full/wordle_app/android/app/.cxx/Debug/493w5e4c/armeabi-v7a/CMakeFiles/rebuild_cache.dir
