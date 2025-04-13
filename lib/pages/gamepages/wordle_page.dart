@@ -187,7 +187,7 @@ class _WordlePageState extends State<WordlePage> {
         ],
       ),
       bottomNavigationBar: Container(
-        height: 335,
+        height: 370,
         decoration: MyDecorations.keyBoardDecoration,
         child:
             !gameLogic.gameFinished ? _buildKeyboard() : _buildGameOverScreen(),
@@ -216,12 +216,12 @@ class _WordlePageState extends State<WordlePage> {
         ),
         const Spacer(flex: 1),
         Expanded(
-          flex: 80,
+          flex: 100,
           child: GridView.count(
             crossAxisCount: 7,
             mainAxisSpacing: 2,
             crossAxisSpacing: 2,
-            controller: ScrollController(keepScrollOffset: false),
+            physics: const NeverScrollableScrollPhysics(),
             children: alphabet.map((e) {
               if (e == " ") {
                 return const LetterBox(letter: " ", isTransparent: true);
@@ -266,7 +266,7 @@ class _WordlePageState extends State<WordlePage> {
             ],
           ),
         ),
-        const Spacer(flex: 2),
+        const Spacer(flex: 20),
       ],
     );
   }
